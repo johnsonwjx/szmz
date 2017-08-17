@@ -1,0 +1,70 @@
+$sidebar-width: 260px;
+$navbar-height: 50px;
+$navbar-bg: #0067A6;
+$row-left-width: 400px;
+$row-right-width: 400px;
+@import 'sidebar';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+  // overflow: hidden;
+}
+
+div {
+  border: 1px solid #CCC;
+}
+
+#container {
+  height: 100%;
+  padding-left: $sidebar-width;
+
+  #navbar {
+    height: $navbar-height;
+    background-color: $navbar-bg;
+  }
+
+  #content {
+    margin-top: - $navbar-height;
+    padding-top: $navbar-height;
+    height: 100%;
+    padding-left: $row-left-width;
+    padding-right: $row-right-width;
+
+    &.after {
+      clear: both;
+      content: '';
+    }
+
+    .row {
+      position: relative;
+      height: 100%;
+      float: left;
+    }
+
+    #row-left {
+      left: -$row-left-width;
+      margin-left: -100%;
+      width: $row-left-width;
+    }
+
+    #row-right {
+      right: -$row-right-width;
+      margin-left: - $row-right-width;
+      width: $row-right-width;
+    }
+
+    #row-center {
+      width: 100%;
+    }
+  }
+}
