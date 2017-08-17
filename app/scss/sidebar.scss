@@ -1,7 +1,6 @@
 $welcome-bg: #000000;
 $welcome-color: #B5B5B5;
 $welcome-height: 50px;
-$tree-bg: #DCDCDC;
 $tree-level1-bg: #30373F;
 $tree-color: #F5F5F5;
 $tree-font-size: 15px;
@@ -28,7 +27,6 @@ $tree-font-size: 15px;
   #tree {
     height: 100%;
     color: $tree-color;
-    background-color: $tree-bg;
 
     ul.level1 li {
       margin: 2px 0;

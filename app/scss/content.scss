@@ -1,0 +1,161 @@
+$wether-bg: #00C7CA;
+$attendance-person-bg: #1C5A73;
+$attendance-company-bg: #3CD7DB;
+$news-content-bg: #00ABD7;
+$news-title-bg: #F3572E;
+$finance-bg: #EFC028;
+$common-bg: #F3572E;
+$message-logo-bg: #008972;
+
+.box {
+  float: left;
+  width: 100%;
+  background: #FFF;
+}
+
+.more {
+  float: right;
+
+  &:after {
+    content: '';
+    clear: both;
+  }
+}
+
+#weather {
+  background-color: $wether-bg;
+  height: 30%;
+}
+
+#tasks {
+  height: 40%;
+}
+
+#attendance-company {
+  width: 50%;
+  height: 30%;
+  background-color: $attendance-company-bg;
+}
+
+#attendance-person {
+  width: 50%;
+  height: 30%;
+  background-color: $attendance-person-bg;
+}
+
+#news {
+  height: 70%;
+
+  .news {
+    height: 33%;
+    color: #FFF;
+    font-size: 12px;
+
+    & > * {
+      float: left;
+      height: 100%;
+    }
+
+    &:after {
+      content: '';
+      clear: both;
+    }
+
+    .news-title {
+      display: table;
+      width: 20%;
+
+      .news-title-logo {
+        display: table-cell;
+        vertical-align: middle;
+      }
+      background-color: $news-title-bg;
+      color: #FFF;
+      text-align: center;
+    }
+
+    .news-content {
+      position: relative;
+      width: 60%;
+      background-color: $news-content-bg;
+      padding: 3px 15px;
+
+      > p {
+        height: 25px;
+      }
+
+      ul {
+        list-style-position: inside;
+
+        li {
+          height: 22px;
+          line-height: 16px;
+        }
+
+        .time {
+          position: absolute;
+          right: 10px;
+        }
+      }
+    }
+
+    img {
+      width: 20%;
+    }
+  }
+}
+
+#schedule {
+  height: 30%;
+  background-color: #FFF;
+}
+
+#message {
+  height: 40%;
+  background-color: #fff;
+
+  & > * {
+    float: left;
+    height: 100%;
+  }
+
+  #message-logo {
+    display: table;
+    text-align: center;
+    width: 20%;
+    background-color: $message-logo-bg;
+
+    > i {
+      display: table-cell;
+      vertical-align: middle;
+      color:#FFF;
+    }
+  }
+
+  #message-content {
+    width: 80%;
+    padding:10px;
+  }
+}
+
+#finance {
+  width: 50%;
+  height: 30%;
+  background-color: $finance-bg;
+}
+
+#common {
+  width: 50%;
+  height: 30%;
+  background-color: $common-bg;
+}
+
+#notify {
+  width: 50%;
+  height: 30%;
+}
+
+#contact {
+  width: 50%;
+  height: 30%;
+}
