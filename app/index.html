@@ -11,100 +11,167 @@
 <body>
   <div id="sidebar">
     <div id="welcome">
-      <p>WELCOME</p>
-      <p>欢迎您:ANNA :管理员</p>
+      <p>= WELCOME =</p>
+      <h4>欢迎您:ANNA 角色:管理员</h4>
     </div>
     <div id="tree" class="pure-menu">
       <ul class="pure-menu-list level1">
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">个人中中心</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">OA办公</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link"><i class="fa fa-user" aria-hidden="true"></i>个人中中心</a></li>
+        <li class="pure-menu-item">
+          <a href="#" class="pure-menu-link">OA办公<i class="oper fa fa-angle-right" aria-hidden="true"></i></a>
+          <ul class="pure-menu-list">
+            <li class="pure-menu-item">
+              <a href="#" class="pure-menu-link">OA1</a>
+            </li>
+          </ul>
+        </li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link"><i class="fa fa-user" aria-hidden="true"></i>个人中中心</a></li>
       </ul>
     </div>
   </div>
   <div id="container">
-    <div id="navbar"></div>
+    <div id="navbar">
+      <div class="right">
+        <div class="pure-menu pure-menu-horizontal">
+          <a href="#" class="pure-menu-heading">SYSTEM</a>
+          <ul class="pure-menu-list">
+            <li class="pure-menu-item"><a href="#" class="pure-menu-link">修改密码</a></li>
+            <li class="pure-menu-item"><a href="#" class="pure-menu-link">退出系统</a></li>
+            <li class="pure-menu-item"><a href="#" class="pure-menu-link">帮助收藏</a></li>
+          </ul>
+          <a href="#" id="close-system" class=" box-title pure-menu-heading">
+              <i class="fa fa-power-off fa-2x" aria-hidden="true"></i>
+            </a>
+        </div>
+      </div>
+    </div>
     <div id="content">
-      <div id="row-left" class="col">
+      <div id="col-left" class="col">
         <div id="weather" class="box">
 
         </div>
-        <div id="tasks" class="box max">
-
+        <div id="tasks" class="box tab">
+          <div class="tab-header pure-menu pure-menu-horizontal">
+            <ul class="pure-menu-list">
+              <li class="pure-menu-item active">
+                <a href="#" class="pure-menu-link">待办</a>
+                <div class="anchor">
+                  <div class="triangle-border tb-border"></div>
+                  <div class="triangle-border tb-background"></div>
+                </div>
+              </li>
+              <li class="pure-menu-item divider"></li>
+              <li class="pure-menu-item">
+                <a href="#" class="pure-menu-link">跟踪</a>
+                <div class="anchor">
+                  <div class="triangle-border tb-border"></div>
+                  <div class="triangle-border tb-background"></div>
+                </div>
+              </li>
+              <li class="pure-menu-item divider"></li>
+              <li class="pure-menu-item">
+                <a href="#" class="pure-menu-link">完成</a>
+                <div class="anchor">
+                  <div class="triangle-border tb-border"></div>
+                  <div class="triangle-border tb-background"></div>
+                </div>
+              </li>
+              <li class="pure-menu-item divider"></li>
+            </ul>
+          </div>
+          <div class="tab-content list-content">
+            <ul>
+              <li>会议通知 <span class="right">2017-07-01</span></li>
+            </ul>
+          </div>
         </div>
-        <div id="attendance-person" class="box">
-
+        <div id="attendance-person" class="box box-title">
+          <a href="#">
+            <i class="fa fa-hand-o-up fa-3x" aria-hidden="true"></i>
+            <h4>个人考勤</h4>
+          </a>
         </div>
-        <div id="attendance-company" class="box">
-
+        <div id="attendance-company" class="box box-title">
+          <a href="#">
+            <i class="fa fa-calendar-check-o fa-3x" aria-hidden="true"></i>
+            <h4>公司考勤</h4>
+          </a>
         </div>
       </div>
-      <div id="row-center" class="col">
+      <div id="col-center" class="col">
         <div id="news" class="box">
           <div id="news-business" class="news">
-            <h4 class="news-title">
-              <div class="news-title-logo">
+            <h4 class="news-title box-title">
+              <div>
               <i class="fa fa-newspaper-o fa-3x" aria-hidden="true"></i>
               <p>行业新闻</p>
               </div>
             </h4>
             <img src="./images/slice_1_3.gif" alt="">
             <div class="news-content">
-              <p>
+              <p class="list-header">
                 <a href="" class="more">更多>></a>
               </p>
-              <ul>
-                <li>1dfdfddf1 <span class="time">2017-01-1</span></li>
-                <li>1dfdfddf1 <span class="time">2017-01-1</span></li>
-                <li>1dfdfddf1 <span class="time">2017-01-1</span></li>
-                <li>1dfdfddf1 <span class="time">2017-01-1</span></li>
-                <li>1dfdfddf1 <span class="time">2017-01-1</span></li>
-                <li>1dfdfddf1 <span class="time">2017-01-1</span></li>
-              </ul>
+              <div class="list-content">
+                <ul>
+                  <li>1dfdfddf1 <span class="right">2017-01-1</span></li>
+                  <li>1dfdfddf1 <span class="right">2017-01-1</span></li>
+                  <li>1dfdfddf1 <span class="right">2017-01-1</span></li>
+                  <li>1dfdfddf1 <span class="right">2017-01-1</span></li>
+                  <li>1dfdfddf1 <span class="right">2017-01-1</span></li>
+                  <li>1dfdfddf1 <span class="right">2017-01-1</span></li>
+                </ul>
+              </div>
+
             </div>
           </div>
           <div id="news-company" class="news">
-            <h4 class="news-title">
-              <div class="news-title-logo">
+            <h4 class="news-title box-title">
+              <div>
               <i class="fa fa-newspaper-o fa-3x" aria-hidden="true"></i>
               <p>行业新闻</p>
               </div>
             </h4>
             <img src="./images/slice_1_3.gif" alt="">
             <div class="news-content">
-              <p>
+              <p class="list-header">
                 <a href="" class="more">更多>></a>
               </p>
-              <ul>
-                <li>1dfdfddf1 <span class="time">2017-01-1</span></li>
-                <li>1dfdfddf1 <span class="time">2017-01-1</span></li>
-                <li>1dfdfddf1 <span class="time">2017-01-1</span></li>
-                <li>1dfdfddf1 <span class="time">2017-01-1</span></li>
-                <li>1dfdfddf1 <span class="time">2017-01-1</span></li>
-                <li>1dfdfddf1 <span class="time">2017-01-1</span></li>
-              </ul>
+              <div class="list-content">
+                <ul>
+                  <li>1dfdfddf1 <span class="right">2017-01-1</span></li>
+                  <li>1dfdfddf1 <span class="right">2017-01-1</span></li>
+                  <li>1dfdfddf1 <span class="right">2017-01-1</span></li>
+                  <li>1dfdfddf1 <span class="right">2017-01-1</span></li>
+                  <li>1dfdfddf1 <span class="right">2017-01-1</span></li>
+                  <li>1dfdfddf1 <span class="right">2017-01-1</span></li>
+                </ul>
+              </div>
             </div>
 
           </div>
           <div id="news-big" class="news">
-            <h4 class="news-title">
-              <div class="news-title-logo">
+            <h4 class="news-title box-title">
+              <div>
               <i class="fa fa-newspaper-o fa-3x" aria-hidden="true"></i>
               <p>行业新闻</p>
               </div>
             </h4>
             <img src="./images/slice_1_3.gif" alt="">
             <div class="news-content">
-              <p>
+              <p class="list-header">
                 <a href="" class="more">更多>></a>
               </p>
-              <ul>
-                <li>1dfdfddf1 <span class="time">2017-01-1</span></li>
-                <li>1dfdfddf1 <span class="time">2017-01-1</span></li>
-                <li>1dfdfddf1 <span class="time">2017-01-1</span></li>
-                <li>1dfdfddf1 <span class="time">2017-01-1</span></li>
-                <li>1dfdfddf1 <span class="time">2017-01-1</span></li>
-                <li>1dfdfddf1 <span class="time">2017-01-1</span></li>
-              </ul>
+              <div class="list-content">
+                <ul>
+                  <li>1dfdfddf1 <span class="right">2017-01-1</span></li>
+                  <li>1dfdfddf1 <span class="right">2017-01-1</span></li>
+                  <li>1dfdfddf1 <span class="right">2017-01-1</span></li>
+                  <li>1dfdfddf1 <span class="right">2017-01-1</span></li>
+                  <li>1dfdfddf1 <span class="right">2017-01-1</span></li>
+                  <li>1dfdfddf1 <span class="right">2017-01-1</span></li>
+                </ul>
+              </div>
             </div>
 
           </div>
@@ -113,22 +180,100 @@
 
         </div>
       </div>
-      <div id="row-right" class="col">
+      <div id="col-right" class="col">
         <div id="message" class="box">
-          <div id="message-logo">
+          <div id="message-logo" class="box-title">
             <i class="fa fa-volume-up fa-3x" aria-hidden="true"></i>
           </div>
           <div id="message-content">
-              <h4>通知公告<a class="more">更多>></a></h4>
+            <h4 class="list-header">通知公告<a class="more">更多>></a></h4>
+            <div class="list-content">
+              <ul>
+                <li> 关于员工入职通知 <span class="right">2017-01-01</span></li>
+                <li> 关于员工入职通知 <span class="right">2017-01-01</span></li>
+                <li> 关于员工入职通知 <span class="right">2017-01-01</span></li>
+                <li> 关于员工入职通知 <span class="right">2017-01-01</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div id="finance" class="box">
+          <div class="finance-title box-title">
+            <div>
+              <i class="fa fa-jpy fa-3x" aria-hidden="true"></i>
+              <p>个人财务</p>
+            </div>
+          </div>
+          <div id="finance-content">
+            <div id="borrow" class="box-title">
+              <a href="">
+                <i class="fa fa-handshake-o fa-2x" aria-hidden="true"></i> 借款
+            </a>
+            </div>
+            <div id="reimbursment" class="box-title">
+              <a href="">
+              <i class="fa fa-list-alt fa-2x" aria-hidden="true"></i> 报销
+          </a>
+            </div>
+            <div id="salary" class="box-title">
+              <a href="">
+                <i class="fa fa-th-list fa-2x" aria-hidden="true"></i>工资表
+            </a>
+            </div>
+          </div>
+        </div>
+        <div id="common" class="box">
+          <div id="common-files" class="box-title">
+            <a href="#"> <i class="fa fa-folder fa-2x" aria-hidden="true"></i> 常用文件 </a>
+          </div>
+          <div id="common-sites">
+            <a href="#"> <i class="fa fa-folder fa-2x" aria-hidden="true"></i>公司官网 </a>
+            <a href="#"> <i class="fa fa-folder fa-2x" aria-hidden="true"></i> 企业邮箱 </a>
+            <a href="#"> <i class="fa fa-folder fa-2x" aria-hidden="true"></i> 企查查 </a>
+            <a href="#"> <i class="fa fa-folder fa-2x" aria-hidden="true"></i> 工商局 </a>
+          </div>
+        </div>
+        <div id="notify" class="tab box">
+          <div class="tab-header pure-menu pure-menu-horizontal">
+            <ul class="pure-menu-list">
+              <li class="pure-menu-item active">
+                <a href="#" class="pure-menu-link">生日提醒</a>
+                <div class="anchor">
+                  <div class="triangle-border tb-border"></div>
+                  <div class="triangle-border tb-background"></div>
+                </div>
+              </li>
+              <li class="pure-menu-item divider"></li>
+              <li class="pure-menu-item">
+                <a href="#" class="pure-menu-link">证书到期提醒</a>
+                <div class="anchor">
+                  <div class="triangle-border tb-border"></div>
+                  <div class="triangle-border tb-background"></div>
+                </div>
+              </li>
+              <li class="pure-menu-item divider"></li>
+            </ul>
+          </div>
+          <div class="tab-content list-content">
             <ul>
-              <li> </li>
+              <li>人事哈哈今天生日 <a href="" class="right">送上祝福<i class="fa fa-gift" aria-hidden="true"></i></a></li>
+              <li>人事哈哈今天生日 <a href="" class="right">送上祝福<i class="fa fa-gift" aria-hidden="true"></i></a></li>
             </ul>
           </div>
         </div>
-        <div id="finance" class="box"></div>
-        <div id="common" class="box"></div>
-        <div id="notify" class="box"></div>
-        <div id="contact" class="box"></div>
+        <div id="contact" class="box">
+          <div class="list-header">
+            <label for="contract-search">  <i class="fa fa-address-book" aria-hidden="true"></i>通讯录</label>
+            <input id="contract-search" type="text" placeholder="查询">
+            <a href=""><i class="fa fa-search" aria-hidden="true"></i></a>
+          </div>
+          <div class="list-content">
+            <ul>
+              <li>人事哈哈今天生日 <span class="time">送上祝福</span></li>
+              <li>人事哈哈今天生日 <span class="time">送上祝福</span></li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </div>

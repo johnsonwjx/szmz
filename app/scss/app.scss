@@ -1,9 +1,33 @@
 $bg: #DCDCDC;
+$color: #F16C00;
+$tab-header-height: 30px;
+$tab-header-bg: #E8E8E8;
+$border-color: #CCC;
+$tab-content-bg: #FFF;
 $sidebar-width: 250px;
-$navbar-height: 50px;
+$welcome-bg: #000000;
+$welcome-color: #B5B5B5;
+$welcome-height: 50px;
+$tree-level1-bg: #30373F;
+$tree-color: #F5F5F5;
+$tree-font-size: 15px;
+$navbar-height: 45px;
 $navbar-bg: #0067A6;
+$wether-bg: #00C7CA;
+$attendance-person-bg: #1C5A73;
+$attendance-company-bg: #3CD7DB;
+$news-content-bg: #00ABD7;
+$news-title-bg: #F3572E;
+$finance-bg: #EFC028;
+$common-bg: #F3572E;
+$message-logo-bg: #008972;
+$active-color: #3BC1F8;
+$border-color: #CCC;
+$box-bg: #FFF;
 @import 'sidebar';
+@import 'navbar';
 @import 'content';
+@import 'tab';
 
 * {
   margin: 0;
@@ -21,53 +45,43 @@ html {
   // overflow: hidden;
 }
 
-div {
-  border: 1px solid #CCC;
-}
-
 #container {
+  min-width: 1200px;
+  min-height: 800px;
   height: 100%;
   padding-left: $sidebar-width;
+}
 
-  #navbar {
-    height: $navbar-height;
-    background-color: $navbar-bg;
+.pure-menu-heading {
+  pointer-events: none;
+}
+
+.pure-menu-link {
+  &:focus,
+  &:hover {
+    background: none;
+    color: #FFF;
+  }
+}
+
+i {
+  color: #FFF;
+  margin-right: 5px;
+}
+
+.box-title {
+  display: table;
+  text-align: center;
+  color: #FFF;
+
+  > * {
+    display: table-cell;
+    vertical-align: middle;
   }
 
-  #content {
-    height: 100%;
-    overflow: hidden;
-    margin-top: - $navbar-height;
-    padding-top: $navbar-height;
-
-    &:after {
-      content: '';
-      clear: both;
-    }
-
-    .col {
-      float: left;
-      height: 100%;
-
-      &:after {
-        content: '';
-        clear: both;
-      }
-    }
-
-    #row-left {
-      width: 30%;
-      background-color: yellow;
-    }
-
-    #row-right {
-      width: 30%;
-      background-color: blue;
-    }
-
-    #row-center {
-      width: 40%;
-      background-color: red;
-    }
+  a {
+    color: #FFF;
+    text-decoration: none;
+    font-weight: lighter;
   }
 }

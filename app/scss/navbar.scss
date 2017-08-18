@@ -1,0 +1,41 @@
+$navbar-height: 45px;
+$navbar-bg: #0067A6;
+
+#navbar {
+  color: #A7C5D9;
+  height: $navbar-height;
+  background-color: $navbar-bg;
+  background-image: url('../images/slice_0_1.gif');
+  background-repeat: no-repeat;
+
+  #close-system {
+    background-color: $color;
+    height: $navbar-height;
+    width: 45px;
+  }
+
+  .pure-menu-heading {
+    font-size: 10px;
+  }
+
+  .pure-menu-link {
+    &:focus,
+    &:hover {
+      background: none;
+      color: $color;
+    }
+  }
+
+  .pure-menu-heading,
+  .pure-menu-link {
+    font-weight: lighter;
+    color: #F5F5F5;
+    height: $navbar-height;
+  }
+
+  .right {
+    color: #FFF;
+    position: absolute;
+    right: 0;
+  }
+}

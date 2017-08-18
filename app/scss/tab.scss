@@ -1,0 +1,76 @@
+.tab {
+  position: relative;
+
+  .tab-header {
+    position: absolute;
+    height: $tab-header-height;
+    background-color: $tab-header-bg;
+    border-bottom: 1px solid $border-color;
+
+    .pure-menu-list {
+      .pure-menu-item {}
+    }
+
+    .divider {
+      display: inline-block;
+      width: 0;
+      height: 2em;
+      border-left: 1px solid $border-color;
+      border-right: 1px solid $border-color;
+    }
+
+    .pure-menu-heading,
+    .pure-menu-link {
+      padding: 5px 20px 3px;
+      font-weight: lighter;
+      font-size: 12px;
+
+      &:focus,
+      &:hover {
+        color: $active-color;
+      }
+    }
+
+    .anchor {
+      display: none;
+    }
+
+    .active {
+      .pure-menu-heading,
+      .pure-menu-link {
+        color: $active-color;
+      }
+
+      .anchor {
+        display: block;
+      }
+    }
+
+    .triangle-border {
+      position: absolute;
+      text-align: center;
+      left: 30px;
+      overflow: hidden;
+      width: 0;
+      height: 0;
+      border-width: 0 8px 8px 8px;
+      border-style: solid dashed dashed dashed;
+    }
+
+    .tb-border {
+      bottom: -4px;
+      border-color: transparent transparent $border-color transparent;
+    }
+
+    .tb-background {
+      bottom: -5px;
+      border-color: transparent transparent $tab-content-bg transparent;
+    }
+  }
+
+  .tab-content {
+    background-color: $tab-content-bg;
+    padding-top: $navbar-height + 5px;
+    height: 100%;
+  }
+}

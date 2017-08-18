@@ -1,10 +1,3 @@
-$welcome-bg: #000000;
-$welcome-color: #B5B5B5;
-$welcome-height: 50px;
-$tree-level1-bg: #30373F;
-$tree-color: #F5F5F5;
-$tree-font-size: 15px;
-
 #sidebar {
   position: fixed;
   width: $sidebar-width;
@@ -27,17 +20,48 @@ $tree-font-size: 15px;
   #tree {
     height: 100%;
     color: $tree-color;
+    @mixin level($level) {
+      a {
+        padding-left: $level * 20px;
+      }
+    }
+
+    .oper {
+      float: right;
+    }
 
     ul.level1 li {
-      margin: 2px 0;
-      background-color: $tree-level1-bg;
+      border-bottom: 2px solid #FFF;
       font-size: 17px;
-      padding: 0.5em;
+      background-color: $tree-level1-bg;
+      @include level(1);
 
       a {
         color: #F5F5F5;
 
-        &:hover {};
+        &:hover {
+          color: $color;
+        };
+      }
+
+      ul.expand {
+        display: block;
+      }
+
+      ul {
+        display: none;
+
+        li {
+          a {
+            color: #000;
+          }
+          background-color: $bg;
+          @include level(2);
+
+          ui li {
+            @include level(3);
+          }
+        }
       }
     }
   }

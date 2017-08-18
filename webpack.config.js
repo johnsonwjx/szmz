@@ -1,10 +1,10 @@
-var
-  path = require("path"),
+const path = require("path"),
   webpack = require('webpack'),
   src = path.resolve(__dirname, 'app'),
-  dist = path.resolve(__dirname, 'dist');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
+  dist = path.resolve(__dirname, '../web/szmz');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
 module.exports = {
   entry: {
     "index": src + '/index.js'
@@ -45,8 +45,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       chunks: ['index'],
       template: src + '/index.html',
-      filename: dist + '/index.html',
-      hash: true
+      filename: dist + '/index.html'
     }),
     new webpack.ProvidePlugin({
       $: 'jquery',
