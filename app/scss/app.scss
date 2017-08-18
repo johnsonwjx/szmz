@@ -4,7 +4,7 @@ $tab-header-height: 30px;
 $tab-header-bg: #E8E8E8;
 $border-color: #CCC;
 $tab-content-bg: #FFF;
-$sidebar-width: 250px;
+$sidebar-width: 220px;
 $welcome-bg: #000000;
 $welcome-color: #B5B5B5;
 $welcome-height: 50px;
@@ -46,8 +46,6 @@ html {
 }
 
 #container {
-  min-width: 1200px;
-  min-height: 800px;
   height: 100%;
   padding-left: $sidebar-width;
 }

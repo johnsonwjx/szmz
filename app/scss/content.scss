@@ -1,10 +1,20 @@
+$col-left-width: 300px;
+$col-right-width: 460px;
+
 #content {
+  min-width: 1200px;
+  min-height: 800px;
   height: 100%;
-  overflow: hidden;
   margin-top: - $navbar-height;
   padding-top: $navbar-height;
-  font-size: 12px;
+  font-size: 10px;
   font-weight: lighter;
+  padding-left: $col-left-width;
+  padding-right: $col-right-width;
+
+  > div {
+    float: left;
+  }
 
   &:after {
     content: '';
@@ -25,10 +35,12 @@
       list-style-position: inside;
 
       li {
+        width: 100%;
+        white-space: nowrap;
+        text-overflow: ellipsis;
         min-width: 100px;
-        height: 22px;
-        line-height: 16px;
         border-bottom: 1px dotted $bg;
+        margin-top: 5px;
 
         .right {
           position: absolute;
@@ -79,7 +91,10 @@
   }
 
   #col-left {
-    width: 30%;
+    position: relative;
+    left: -$col-left-width;
+    width: $col-left-width;
+    margin-left: -100%;
 
     #weather {
       background-color: $wether-bg;
@@ -104,7 +119,7 @@
   }
 
   #col-center {
-    width: 40%;
+    width: 100%;
 
     #news {
       height: 70%;
@@ -149,7 +164,10 @@
   }
 
   #col-right {
-    width: 30%;
+    position: relative;
+    right: - $col-right-width;
+    width: $col-right-width;
+    margin-left: - $col-right-width;
 
     #message {
       height: 40%;
@@ -228,12 +246,13 @@
 
       #common-sites {
         height: 66%;
+        padding: 40px 15px;
 
         > a {
+          padding-bottom: 10px;
           color: #FFF;
           float: left;
           width: 50%;
-          padding: 10px 20px;
         }
       }
     }
