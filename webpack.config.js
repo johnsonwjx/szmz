@@ -1,7 +1,7 @@
 const path = require("path"),
   webpack = require('webpack'),
   src = path.resolve(__dirname, 'app'),
-  dist = path.resolve(__dirname, '../web/szmz');
+  dist = path.resolve(__dirname, '../web');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
@@ -46,11 +46,6 @@ module.exports = {
       chunks: ['index'],
       template: src + '/index.html',
       filename: dist + '/index.html'
-    }),
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-      'window.jQuery': 'jquery'
     }),
     new ExtractTextPlugin("[name].css")
   ]

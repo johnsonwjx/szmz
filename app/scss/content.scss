@@ -35,9 +35,9 @@ $col-right-width: 460px;
       list-style-position: inside;
 
       li {
-        width: 100%;
-        white-space: nowrap;
+        overflow: hidden;
         text-overflow: ellipsis;
+        white-space: nowrap;
         min-width: 100px;
         border-bottom: 1px dotted $bg;
         margin-top: 5px;

@@ -24,7 +24,7 @@
     overflow: auto;
     color: $tree-color;
     @mixin level($level) {
-      a {
+      .pure-menu-link {
         padding-left: $level * 20px;
       }
     }
@@ -33,13 +33,18 @@
       float: right;
     }
 
+    .expand > ul {
+      display: block!important;
+    }
+
     ul.level1 li {
       border-bottom: 2px solid #FFF;
       font-size: 17px;
       background-color: $tree-level1-bg;
       @include level(1);
 
-      a {
+      .pure-menu-link {
+        cursor: pointer;
         color: #F5F5F5;
 
         &:hover {
@@ -47,15 +52,11 @@
         };
       }
 
-      ul.expand {
-        display: block;
-      }
-
       ul {
         display: none;
 
         li {
-          a {
+          .pure-menu-link {
             color: #000;
           }
           background-color: $bg;

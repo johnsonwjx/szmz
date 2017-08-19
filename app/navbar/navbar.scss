@@ -11,6 +11,14 @@
     background-color: $color;
     height: $navbar-height;
     width: 45px;
+
+    i {
+      margin: auto;
+
+      &:hover {
+        color: $navbar-bg;
+      }
+    }
   }
 
   .pure-menu-heading {
