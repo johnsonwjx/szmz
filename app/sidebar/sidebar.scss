@@ -1,3 +1,5 @@
+@import "../scss/vars";
+
 #sidebar {
   position: fixed;
   width: $sidebar-width;
@@ -19,6 +21,7 @@
 
   #tree {
     height: 100%;
+    overflow: auto;
     color: $tree-color;
     @mixin level($level) {
       a {

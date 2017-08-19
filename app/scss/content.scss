@@ -2,12 +2,12 @@ $col-left-width: 300px;
 $col-right-width: 460px;
 
 #content {
-  min-width: 1200px;
+  min-width: $min-width - $sidebar-width;
   min-height: 800px;
   height: 100%;
   margin-top: - $navbar-height;
   padding-top: $navbar-height;
-  font-size: 10px;
+  font-size: 13px;
   font-weight: lighter;
   padding-left: $col-left-width;
   padding-right: $col-right-width;
@@ -121,43 +121,6 @@ $col-right-width: 460px;
   #col-center {
     width: 100%;
 
-    #news {
-      height: 70%;
-      background-color: $news-content-bg;
-
-      .news {
-        height: 33%;
-        color: #FFF;
-        border-bottom: 1px solid $border-color;
-
-        & > * {
-          float: left;
-          height: 100%;
-        }
-
-        &:after {
-          content: '';
-          clear: both;
-        }
-
-        .news-title {
-          width: 20%;
-          background-color: $news-title-bg;
-          color: #FFF;
-        }
-
-        .news-content {
-          position: relative;
-          width: 60%;
-          padding: 3px 15px;
-        }
-
-        img {
-          width: 20%;
-        }
-      }
-    }
-
     #schedule {
       height: 30%;
     }
@@ -168,66 +131,6 @@ $col-right-width: 460px;
     right: - $col-right-width;
     width: $col-right-width;
     margin-left: - $col-right-width;
-
-    #message {
-      height: 40%;
-
-      & > * {
-        float: left;
-        height: 100%;
-      }
-
-      #message-logo {
-        width: 20%;
-        background-color: $message-logo-bg;
-      }
-
-      #message-content {
-        position: relative;
-        width: 80%;
-        padding: 10px;
-
-        .more {
-          color: $active-color;
-        }
-
-        ul {
-          list-style: none;
-        }
-      }
-    }
-
-    #finance {
-      width: 50%;
-      height: 30%;
-      background-color: $finance-bg;
-
-      > div {
-        height: 100%;
-        float: left;
-      }
-
-      .finance-title {
-        width: 30%;
-        border-right: 1px solid $border-color;
-      }
-
-      #finance-content {
-        width: 70%;
-
-        > * {
-          height: 33%;
-          width: 100%;
-        }
-
-        #borrow {}
-
-        #reimbursment {
-          border-top: 1px solid $border-color;
-          border-bottom: 1px solid $border-color;
-        }
-      }
-    }
 
     #common {
       width: 50%;
@@ -263,19 +166,6 @@ $col-right-width: 460px;
 
       i {
         color: red;
-      }
-    }
-
-    #contact {
-      width: 50%;
-      height: 30%;
-
-      #contract-search {
-        width: 50%;
-      }
-
-      i {
-        color: $active-color;
       }
     }
   }

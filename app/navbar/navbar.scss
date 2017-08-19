@@ -1,5 +1,4 @@
-$navbar-height: 45px;
-$navbar-bg: #0067A6;
+@import "../scss/vars";
 
 #navbar {
   color: #A7C5D9;
@@ -34,8 +33,7 @@ $navbar-bg: #0067A6;
   }
 
   .right {
+    float: right;
     color: #FFF;
-    position: absolute;
-    right: 0;
   }
 }

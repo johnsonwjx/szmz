@@ -1,0 +1,14 @@
+@import "../scss/vars";
+
+#contact {
+  width: 50% !important;
+  height: 30%;
+
+  #contract-search {
+    width: 50%;
+  }
+
+  i {
+    color: $active-color;
+  }
+}

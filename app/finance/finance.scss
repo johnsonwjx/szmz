@@ -1,0 +1,33 @@
+@import "../scss/vars";
+
+#finance {
+  width: 50%!important;
+  height: 30%;
+  background-color: $finance-bg!important;
+
+  > div {
+    height: 100%;
+    float: left;
+  }
+
+  .finance-title {
+    width: 30%;
+    border-right: 1px solid $border-color;
+  }
+
+  #finance-content {
+    width: 70%;
+
+    > * {
+      height: 33%;
+      width: 100%;
+    }
+
+    #borrow {}
+
+    #reimbursment {
+      border-top: 1px solid $border-color;
+      border-bottom: 1px solid $border-color;
+    }
+  }
+}

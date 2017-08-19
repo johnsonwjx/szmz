@@ -1,0 +1,29 @@
+@import "../scss/vars";
+
+#message {
+  height: 40%;
+
+  & > * {
+    float: left;
+    height: 100%;
+  }
+
+  #message-logo {
+    width: 20%;
+    background-color: $message-logo-bg;
+  }
+
+  #message-content {
+    position: relative;
+    width: 80%;
+    padding: 10px;
+
+    .more {
+      color: $active-color;
+    }
+
+    ul {
+      list-style: none;
+    }
+  }
+}

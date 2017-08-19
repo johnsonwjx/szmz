@@ -1,7 +1,7 @@
 const path = require("path"),
   webpack = require('webpack'),
   src = path.resolve(__dirname, 'app'),
-  dist = path.resolve(__dirname, 'dist');
+  dist = path.resolve(__dirname, '../web/szmz');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
