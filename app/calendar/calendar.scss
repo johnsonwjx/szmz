@@ -1,0 +1,49 @@
+@import "../scss/vars";
+$calendar-days-width: 12.6%;
+$calendar-days-bg: #FFF;
+
+.calendar {
+  ul {
+    list-style: none;
+  }
+
+  .month {
+    padding: 10px;
+    background: $bg;
+    width: 100%;
+    font-size: 17px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+
+  .weekdays {
+    margin: 0;
+    background-color: $calendar-days-bg;
+
+    li {
+      display: inline-block;
+      width: $calendar-days-width;
+      padding: 5px;
+      color: $active-color;
+      text-align: center;
+      font-size: 20px;
+    }
+  }
+
+  .days {
+    @extend .weekdays;
+
+    li {
+      margin-bottom: 5px;
+      font-size: 12px;
+      color: #777;
+
+      .active {
+        padding: 5px;
+        background: $color;
+        color: white !important;
+      }
+    }
+  }
+}

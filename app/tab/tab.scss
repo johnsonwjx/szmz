@@ -1,3 +1,5 @@
+@import "../scss/vars";
+
 .tab {
   position: relative;
 
@@ -36,10 +38,7 @@
     }
 
     .active {
-      .pure-menu-heading,
-      .pure-menu-link {
-        color: $active-color;
-      }
+      color: $active-color;
 
       .anchor {
         display: block;
@@ -58,12 +57,12 @@
     }
 
     .tb-border {
-      bottom: -4px;
+      bottom: -5px;
       border-color: transparent transparent $border-color transparent;
     }
 
     .tb-background {
-      bottom: -5px;
+      bottom: -6px;
       border-color: transparent transparent $tab-content-bg transparent;
     }
   }
@@ -72,5 +71,12 @@
     background-color: $tab-content-bg;
     padding-top: $navbar-height + 5px;
     height: 100%;
+
+    > ul {
+      display: none;
+    }
+    >ul.active{
+      display: block;
+    }
   }
 }
