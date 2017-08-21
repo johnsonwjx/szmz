@@ -19,52 +19,28 @@
     }
   }
 
-  #tree {
-    height: 100%;
-    overflow: auto;
+  .tree {
     color: $tree-color;
-    @mixin level($level) {
-      .pure-menu-link {
-        padding-left: $level * 20px;
-      }
-    }
-
-    .oper {
-      float: right;
-    }
-
-    .expand > ul {
-      display: block!important;
-    }
 
     ul.level1 li {
-      border-bottom: 2px solid #FFF;
       font-size: 17px;
+      border-bottom: 2px solid #FFF;
       background-color: $tree-level1-bg;
-      @include level(1);
+
+      .icon {
+        margin-right: 10px;
+      }
 
       .pure-menu-link {
-        cursor: pointer;
         color: #F5F5F5;
-
-        &:hover {
-          color: $color;
-        };
       }
 
       ul {
-        display: none;
-
         li {
           .pure-menu-link {
             color: #000;
           }
           background-color: $bg;
-          @include level(2);
-
-          ui li {
-            @include level(3);
-          }
         }
       }
     }

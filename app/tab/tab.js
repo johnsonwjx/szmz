@@ -1,5 +1,4 @@
-require('./tab.scss')
-var $ = require('jquery');
+require('./tab.scss');
 $('.tab .tab-header .pure-menu-link').click(function() {
   var active = $(this).hasClass('active');
   if (active) {

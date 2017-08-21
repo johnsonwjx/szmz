@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <project name="szmz" version="000009.v201708211710">
+        <fileset dir=".">
+            <include name="portal/szmz/**"/>
+            <include name="WEB-INF/portal/szmz/**"/>
+            <include name="WEB-INF/lib/szmz.jar"/>
+            <exclude name="**/CVS/**"/>
+        </fileset>
+    </project>
+</root>

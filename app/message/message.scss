@@ -8,12 +8,12 @@
     height: 100%;
   }
 
-  #message-logo {
+  .box-title {
     width: 20%;
     background-color: $message-logo-bg;
   }
 
-  #message-content {
+  .message-content {
     position: relative;
     width: 80%;
     padding: 10px;
@@ -22,8 +22,13 @@
       color: $active-color;
     }
 
-    ul {
-      list-style: none;
+    .list-content {
+      ul {
+        list-style: none;
+        li {
+          width: $col-right-width - 220px;
+        }
+      }
     }
   }
 }

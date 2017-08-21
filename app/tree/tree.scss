@@ -1,0 +1,47 @@
+@import "../scss/vars";
+
+.tree {
+  height: 100%;
+  overflow: auto;
+  @mixin level($level) {
+    .pure-menu-link {
+      padding-left: $level * 20px;
+    }
+  }
+
+  .oper {
+    float: right;
+  }
+
+  .expand > ul {
+    display: block!important;
+  }
+
+  ul.level1 li {
+    @include level(1);
+
+    .pure-menu-link {
+      cursor: pointer;
+
+      &:hover {
+        color: $color;
+      };
+    }
+
+    ul {
+      display: none;
+
+      li {
+        @include level(2);
+
+        ul li {
+          @include level(3);
+
+          ul li {
+            @include level(4);
+          }
+        }
+      }
+    }
+  }
+}

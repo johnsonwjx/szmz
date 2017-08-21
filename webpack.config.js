@@ -1,13 +1,13 @@
 const path = require("path"),
   webpack = require('webpack'),
   src = path.resolve(__dirname, 'app'),
-  dist = path.resolve(__dirname, 'dist');
+  dist = path.resolve(__dirname, '../web');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
   entry: {
-    "index": src + '/index.js'
+    "index": path.join(src, '/index.js')
   },
   output: {
     path: dist,
@@ -16,7 +16,8 @@ module.exports = {
   resolve: {
     root: src,
     alias: {
-      jquery: src + '/lib/jquery.min.js'
+      jquery: path.join(src, '/lib/jquery.min.js'),
+      common: path.join(src, '/lib/common.js')
     }
   },
   module: {
@@ -39,6 +40,12 @@ module.exports = {
     }, {
       test: /\.(eot|svg|ttf|woff|woff2|png)\w*/,
       loader: 'file'
+    }, {
+      test: /\.tmpl$/,
+      // loader: 'mustache'
+      // loader: 'mustache?minify'
+      // loader: 'mustache?{ minify: { removeComments: false } }'
+      loader: 'mustache?noShortcut'
     }]
   },
   plugins: [
@@ -47,13 +54,19 @@ module.exports = {
       template: src + '/index.html',
       filename: dist + '/index.html'
     }),
-    new ExtractTextPlugin("[name].css")
+    new ExtractTextPlugin("[name].css"),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery',
+      Common: 'common'
+    }),
   ]
-
 };
 
 if (process.env.NODE_ENV !== 'production') {
   module.exports.devtool = 'eval-source-map'; //配置生成Source Maps，选择合适的选项
+  module.exports.entry.test = path.join(src, '/test.js');
   module.exports.devServer = {
     host: '0.0.0.0',
     port: 8888,
@@ -64,7 +77,19 @@ if (process.env.NODE_ENV !== 'production') {
     progress: true
   }
   module.exports.plugins = (module.exports.plugins || []).concat([
-    new webpack.HotModuleReplacementPlugin() //热加载插件
+    new webpack.HotModuleReplacementPlugin(), //热加载插件
+    new HtmlWebpackPlugin({
+      chunks: ['test'],
+      template: src + '/test.html',
+      filename: dist + '/test.html'
+    }),
+    new CopyWebpackPlugin([{
+      from: "static/datas",
+      to: "datas"
+    }, {
+      from: "static/WEB-INF",
+      to: "WEB-INF"
+    }])
   ]);
 }
 
@@ -82,6 +107,10 @@ if (process.env.NODE_ENV === 'production') {
         warnings: false
       }
     }),
-    new webpack.optimize.OccurenceOrderPlugin()
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new CopyWebpackPlugin([{
+      from: "static/WEB-INF",
+      to: "WEB-INF"
+    }])
   ])
 }

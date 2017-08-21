@@ -1,0 +1,13 @@
+[{
+  "name": "人事部",
+  "children": [{
+    "name": "小明",
+    "gender": "male"
+  }]
+}, {
+  "name": "人事部",
+  "children": [{
+    "name": "小红",
+    "gender": "female"
+  }]
+}]

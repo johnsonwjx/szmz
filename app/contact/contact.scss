@@ -8,8 +8,15 @@
     width: 50%;
   }
 
-  i {
+  .icon-label {
     color: $active-color;
   }
 
+  .fa-male {
+    color: $active-color;
+  }
+
+  .fa-female {
+    color: red;
+  }
 }

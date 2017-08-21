@@ -9,4 +9,5 @@ require('./message/message.js')
 require('./finance/finance.js')
 require('./contact/contact.js')
 require('./calendar/calendar.js')
+require('./task/task.js')
 module.exports = {}
