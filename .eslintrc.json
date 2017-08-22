@@ -6,7 +6,8 @@
   "globals": {
     "_": true,
     "$": true,
-    "Common": true
+    "Common": true,
+    "swal":true
   },
   "extends": "eslint:recommended",
   "rules": {
