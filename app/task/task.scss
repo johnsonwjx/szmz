@@ -4,10 +4,8 @@
   height: 40%;
 
   .tab-content {
-    ul {
-      li {
-        width: $col-left-width - 100px;
-      }
+    .content {
+      width: $col-left-width - 110px;
     }
   }
 }

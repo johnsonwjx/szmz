@@ -23,11 +23,10 @@
     }
 
     .list-content {
-      ul {
-        list-style: none;
-        li {
-          width: $col-right-width - 220px;
-        }
+      height: 88%;
+
+      .content {
+        width: $col-right-width - 220px;
       }
     }
   }

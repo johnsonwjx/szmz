@@ -67,11 +67,8 @@ function openTask(id, st, fid, wtype) {
   taskid = taskid.substring(0, taskid.indexOf("&"));
   var taskt = url.substring(url.indexOf("&taskType=") + 10);
   taskt = taskt.substring(0, taskt.indexOf("&"));
-  var size = null;
-  try {
-    size = Common.getStyleWidthHeight("", taskid, taskt, "");
-  } catch (er) {}
-  if (size != null) url += "&rs=0&mt=0"; //已经调整了，不在需要调整大小
+  var size = Common.getStyleWidthHeight("", taskid, taskt, "");
+  if (size) url += "&rs=0&mt=0"; //已经调整了，不在需要调整大小
   else size = "width=780,height=550,left=0,top=0,";
 
 
@@ -81,24 +78,17 @@ function openTask(id, st, fid, wtype) {
 
   var leftVa = 0;
   var topVa = 0;
-  try {
-    leftVa = (window.screen.width - parseInt(wVal, 10)) / 2;
-    topVa = (window.screen.height - parseInt(hVal, 10)) / 2;
-
-    if (leftVa < 0) {
-      leftVa = 0
-    }
-
-    if (topVa < 0) {
-      topVa = 0
-    }
-  } catch (e) {}
+  leftVa = (window.screen.width - parseInt(wVal, 10)) / 2;
+  topVa = (window.screen.height - parseInt(hVal, 10)) / 2;
+  if (leftVa < 0) {
+    leftVa = 0;
+  }
+  if (topVa < 0) {
+    topVa = 0;
+  }
   size = "width=" + wVal + ",height=" + hVal + ",left=" + leftVa + ",top=" + topVa + ",";
 
   //弹出窗体并告诉工作流不需要弹出窗口
-  var currentUserId = "";
-  // try {
-  // currentUserId = getCurrentUserId();
-  // } catch (eee) {}
+  var currentUserId = window.userInfo.userid;
   window.open(url + "&openWin=F", taskid + currentUserId, size + "toolbar=no,menubar=no,scrollbars=yes,resizable=yes,location=no,status=no");
 }

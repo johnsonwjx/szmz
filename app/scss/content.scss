@@ -29,16 +29,13 @@
   .list-content {
     padding-left: 5px;
     padding-right: 5px;
+    overflow: hidden;
 
     ul {
-      list-style-position: inside;
       overflow: auto;
       height: 100%;
 
       li {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
         min-width: 100px;
         border-bottom: 1px dotted $bg;
         margin-top: 5px;
@@ -47,11 +44,18 @@
         &:hover {
           color: $color;
         }
+      }
 
-        .right {
-          position: absolute;
-          right: 10px;
-        }
+      .content {
+        display: inline-block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .right {
+        display: inline-block;
+        float: right;
       }
     }
   }
