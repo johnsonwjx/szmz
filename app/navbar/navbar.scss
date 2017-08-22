@@ -11,13 +11,11 @@
     background-color: $color;
     height: $navbar-height;
     width: 45px;
+    cursor: pointer;
+    margin: auto;
 
-    i {
-      margin: auto;
-
-      &:hover {
-        color: $navbar-bg;
-      }
+    &:hover {
+      color: $navbar-bg;
     }
   }
 
