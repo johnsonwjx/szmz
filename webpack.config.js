@@ -1,10 +1,10 @@
-const path = require("path"),
+var path = require("path"),
   webpack = require('webpack'),
   src = path.resolve(__dirname, 'app'),
   dist = path.resolve(__dirname, '../web');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
   entry: {
     "index": path.join(src, '/index.js')

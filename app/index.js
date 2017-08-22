@@ -1,5 +1,6 @@
 require('purecss');
-require("font-awesome/scss/font-awesome.scss");
+require('font-awesome/scss/font-awesome.scss');
+require('sweetalert/dist/sweetalert.css');
 require('./scss/app.scss');
 require('./tab/tab.js');
 require('./sidebar/sidebar.js');
@@ -13,15 +14,11 @@ require('./task/task.js');
 $.getJSON('business.do?action=getUserInfo', function(userInfo) {
   $('#welcome h4').html('欢迎您:' + userInfo.username + ' 角色:管理员');
   window.userInfo = userInfo;
-}).fail(function(response) {
-  if (response.responseText === '未登录') {
-    window.location.href = Common.rootpath;
-  }
+}).fail(function() {
+  Common.reLogin();
 });
+$('#sidebar iframe').attr('src', Common.rootpath + 'desktop2.1/jsp/mywork.jsp');
 
-function reLogin() {
-  window.location.href = Common.rootpath + 'login.do?action=relogin';
-}
-$('#close-system').click(reLogin);
 
+$('#close-system').click(Common.reLogin);
 module.exports = {};
