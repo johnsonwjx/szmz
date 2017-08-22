@@ -1,3 +1,13 @@
+@import "../scss/vars";
+
 #tasks {
   height: 40%;
+
+  .tab-content {
+    ul {
+      li {
+        width: $col-left-width - 100px;
+      }
+    }
+  }
 }

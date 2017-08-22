@@ -1,4 +1,3 @@
-<ul class="active">
-  <li>tab1会议通知 <span class="right">2017-07-01</span></li>
-  <li>tab1会议通知 <span class="right">2017-07-01</span></li>
-</ul>
+ {{#data}}
+<li taskid="{{id}}" fid="{{fid}}" status="{{status}}" wtype="{{wtype}}">{{title}}<span class="right">{{date}}</span></li>
+{{/data}}
