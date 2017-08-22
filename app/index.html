@@ -5,14 +5,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>szmz </title>
+  <title>深圳美芝 </title>
 </head>
 
 <body>
   <div id="sidebar">
     <div id="welcome">
       <p>= WELCOME =</p>
-      <h4>欢迎您:ANNA 角色:管理员</h4>
+      <h4></h4>
     </div>
     <div class="tree pure-menu">
 
@@ -26,11 +26,9 @@
           <ul class="pure-menu-list">
             <li class="pure-menu-item"><a href="#" class="pure-menu-link">修改密码</a></li>
             <li class="pure-menu-item"><a href="#" class="pure-menu-link">退出系统</a></li>
-            <li class="pure-menu-item"><a href="#" class="pure-menu-link">帮助收藏</a></li>
+            <li class="pure-menu-item"><a href="#" class="pure-menu-link">帮助手册</a></li>
             <li class="pure-menu-item box-title">
-              <a href="#" id="close-system">
-              <i class="fa fa-power-off fa-2x" aria-hidden="true"></i>
-            </a>
+              <i id="close-system" class="fa fa-power-off fa-2x" aria-hidden="true"></i>
             </li>
           </ul>
         </div>
@@ -148,7 +146,7 @@
         <div id="tasks" class="box tab">
           <div class="tab-header pure-menu pure-menu-horizontal">
             <ul class="pure-menu-list">
-              <li class="pure-menu-item pure-menu-link active">
+              <li class="pure-menu-item pure-menu-link active" taskType="0">
                 待办
                 <div class="anchor">
                   <div class="triangle-border tb-border"></div>
@@ -156,7 +154,7 @@
                 </div>
               </li>
               <li class="pure-menu-item divider"></li>
-              <li class="pure-menu-item pure-menu-link">
+              <li class="pure-menu-item pure-menu-link" taskType="1">
                 跟踪
                 <div class="anchor">
                   <div class="triangle-border tb-border"></div>
@@ -164,7 +162,7 @@
                 </div>
               </li>
               <li class="pure-menu-item divider"></li>
-              <li class="pure-menu-item pure-menu-link">
+              <li class="pure-menu-item pure-menu-link" taskType="2">
                 完成
                 <div class="anchor">
                   <div class="triangle-border tb-border"></div>
@@ -175,7 +173,9 @@
             </ul>
           </div>
           <div class="tab-content list-content">
-
+            <ul></ul>
+            <ul></ul>
+            <ul></ul>
           </div>
         </div>
         <div id="attendance-person" class="box box-title">
