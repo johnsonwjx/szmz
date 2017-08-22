@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack --progress ",
-    "v6":"npm start && ant -f ../java/build.xml copyweb",
+    "v6": "npm start && ant -f ../java/build.xml copyweb",
     "dev": "cross-env NODE_ENV=development webpack-dev-server",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
