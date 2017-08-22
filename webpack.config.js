@@ -59,8 +59,9 @@ module.exports = {
       $: 'jquery',
       jQuery: 'jquery',
       'window.jQuery': 'jquery',
-      Common: 'common'
-    }),
+      Common: 'common',
+      swal: 'sweetalert'
+    })
   ]
 };
 
