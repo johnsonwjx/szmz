@@ -1,3 +1,4 @@
+/* eslint-env es6,node */
 var path = require("path"),
   webpack = require('webpack'),
   src = path.resolve(__dirname, 'app'),
