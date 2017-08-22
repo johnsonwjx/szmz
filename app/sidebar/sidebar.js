@@ -71,7 +71,7 @@ function openFlowUrl(url, openMode) {
     if ("1" == funcType) {
       var code = url.substring(url.indexOf("&flowClassID=") + 13);
       code = code.substring(0, code.indexOf("&"));
-      size = getStyleWidthHeight(code, "", "", "");
+      size = Common.getStyleWidthHeight(code, "", "", "");
       if (size != null) url += "&rs=0&mt=0"; //已经调整了，不在需要调整大小
       else size = "width=780,height=550,left=0,top=0,";
 
@@ -99,7 +99,7 @@ function openFlowUrl(url, openMode) {
       fid = fid.substring(0, fid.indexOf("&"));
       if (fid == "00004501") {
         var wpid = url.substring(url.indexOf("moduleid%3D") + 11, url.indexOf("moduleid%3D") + 11 + 32);
-        size = getStyleWidthHeight("", "", "", wpid);
+        size = Common.getStyleWidthHeight("", "", "", wpid);
         if (size != null) url += "&rs=0&mt=0"; //已经调整了，不在需要调整大小
         else size = "width=780,height=550,left=0,top=0,";
 
@@ -124,7 +124,7 @@ function openFlowUrl(url, openMode) {
         size = "width=" + wVal + ",height=" + hVal + ",left=" + leftVa + ",top=" + topVa + ",";
       } else if (fid == "40029002") { //自定义查询2.0
         var wpid = url.substring(url.indexOf("resultStyleID%3D") + 16, url.indexOf("resultStyleID%3D") + 16 + 32);
-        size = getStyleWidthHeight("", "", "", "", wpid);
+        size = Common.getStyleWidthHeight("", "", "", "", wpid);
         if (size != null) url += "&rs=0&mt=0"; //已经调整了，不在需要调整大小
         else size = "width=780,height=550,left=0,top=0,";
 
@@ -172,24 +172,4 @@ function openFlowUrl(url, openMode) {
     var workObj = window.parent.document.getElementById("rightMainFrame").contentWindow;
     workObj.location.href = "loadFunc.do?action=workpanel&param=" + encodeURIComponent(url);
   }
-}
-
-//取出打开样式的长宽高
-function getStyleWidthHeight(flowcode, taskid, taskType, wpid, customid) {
-  if (customid == undefined)
-    customid = "";
-  var reStr = null;
-  var url = "../../flow.do";
-
-  $.ajax({
-    async: false, //使用同步的Ajax请求
-    type: "POST",
-    url: url,
-    data: "action=getStyleInfo&flowcode=" + flowcode + "&taskid=" + taskid + "&taskType=" + taskType + "&workpubid=" + wpid + "&customid=" + customid,
-    success: function(msg) {
-      reStr = msg;
-    }
-  });
-
-  return reStr;
 }
