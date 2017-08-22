@@ -1,0 +1,22 @@
+{
+  "env": {
+    "browser": true,
+    "commonjs": true
+  },
+  "globals": {
+    "_": true,
+    "$": true
+  },
+  "extends": "eslint:recommended",
+  "rules": {
+    "no-unused-vars": 1,
+    "no-unreachable": 1,
+    "no-unexpected-multiline": 1,
+    "no-spaced-func": 2,
+    "space-unary-ops": [1, {
+      "words": true,
+      "nonwords": false
+    }],
+    "semi": 1
+  }
+}
