@@ -19,30 +19,8 @@
     }
   }
 
-  .tree {
-    color: $tree-color;
-
-    ul.level1 li {
-      font-size: 17px;
-      border-bottom: 2px solid #FFF;
-      background-color: $tree-level1-bg;
-
-      .icon {
-        margin-right: 10px;
-      }
-
-      .pure-menu-link {
-        color: #F5F5F5;
-      }
-
-      ul {
-        li {
-          .pure-menu-link {
-            color: #000;
-          }
-          background-color: $bg;
-        }
-      }
-    }
+  iframe {
+    width: 100%;
+    height: 100%;
   }
 }
