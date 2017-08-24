@@ -10,6 +10,10 @@ $.getJSON(url, function(data) {
   $birthdayUl.html(html);
   html = expireTmpl.render(data);
   $expireUl.html(html);
+  $birthdayUl.find('.gift').click(function() {
+    swal('开发中...');
+    return;
+  });
 }).fail(function() {
   $birthdayUl.html(Common.status.error);
   $expireUl.html(Common.status.error);
