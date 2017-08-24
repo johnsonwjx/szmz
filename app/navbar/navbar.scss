@@ -5,6 +5,12 @@
   height: $navbar-height;
   background-color: $navbar-bg;
 
+  .brand {
+    img {
+      height: $navbar-height;
+    }
+  }
+
   #close-system {
     background-color: $color;
     height: $navbar-height;
