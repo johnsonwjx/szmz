@@ -1,7 +1,6 @@
 require('./message.scss');
 var messageTmpl = require('./message.tmpl');
 var TaskService = require('../services/task.js');
-var $ = require('jquery');
 // var url = 'datas/message.json';
 var $content = $('#message .message-content .list-content');
 $content.html(Common.status.loadding);
