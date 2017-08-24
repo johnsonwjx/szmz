@@ -1,0 +1,47 @@
+
+#weather {
+  // 覆盖 content 上优先级更高的 padding 设置
+  #content &{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  color: white;
+
+  .temperature {
+    font-size: 46px;
+    display: inline-block;
+  }
+
+  .info {
+    font-size: 14px;
+    margin-bottom: 10px
+  }
+
+  .city {
+    margin-right: 10px;
+  }
+
+  .icon {
+    font-size: 52px;
+    float: right;
+    margin-right: 20px;
+  }
+
+  .chart-container {
+    margin: auto;
+    width: 280px;
+    margin-bottom: 10px;
+  }
+
+  .wind-icon {
+    font-size: 36px;
+    display: inline-block;
+    line-height: 1;
+  }
+
+  .wind-info {
+    font-size: 12px;
+    display: inline-block;
+  }
+}
