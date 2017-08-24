@@ -3,9 +3,12 @@
   "children": [{
     "name": "小明",
     "gender": "male"
+  }, {
+    "name": "小强",
+    "gender": "female"
   }]
 }, {
-  "name": "人事部",
+  "name": "研发部",
   "children": [{
     "name": "小红",
     "gender": "female"

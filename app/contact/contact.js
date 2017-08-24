@@ -12,3 +12,9 @@ $.getJSON(url, function(data) {
   $('#contact .tree').html(html);
   $('#contact .tree .pure-menu-link').click(Tree.nodeClick);
 });
+
+var searchInput = $('#contract-search');
+$('#contract-search-btn').click(function() {
+  var txt = searchInput.val().trim();
+  swal('开发中...');
+});
