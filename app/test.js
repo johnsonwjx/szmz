@@ -1,5 +1,4 @@
 var Mustache = require('mustache');
-var $ = require('jquery');
 var data = {
   menu: [{
     "item": "parent",
@@ -16,7 +15,6 @@ var data = {
 // var recurse = $("#recurse").html();
 var parentTmpl = require('test/parent.tmpl');
 var childTmpl = require('test/child.tmpl');
-debugger;
 var rendered = parentTmpl.render(data, {
   "recurse": childTmpl
 });

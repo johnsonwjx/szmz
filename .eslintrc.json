@@ -7,7 +7,7 @@
     "_": true,
     "$": true,
     "Common": true,
-    "swal":true
+    "swal": true
   },
   "extends": "eslint:recommended",
   "rules": {

@@ -8,6 +8,7 @@
   <title>
     <%= htmlWebpackPlugin.options.title %>
   </title>
+  <script src="../../script/jquerylib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -45,4 +46,5 @@
           </div>
         </div>
     </div>
+    <%= require('html-loader!./password/password.html')%>
 </body>

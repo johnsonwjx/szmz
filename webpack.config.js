@@ -17,16 +17,12 @@ module.exports = {
   resolve: {
     root: src,
     alias: {
-      jquery: path.join(src, '/lib/jquery.min.js'),
       common: path.join(src, '/lib/common.js')
     }
   },
   module: {
     //加载器配置
     loaders: [{
-      include: require.resolve(src + '/lib/jquery.min.js'),
-      loader: 'exports-loader?window.jQuery'
-    }, {
       test: /\.css$/,
       loader: ExtractTextPlugin.extract("style-loader", "css-loader")
     }, {
@@ -55,9 +51,6 @@ module.exports = {
     }),
     new ExtractTextPlugin("[name].css"),
     new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-      'window.jQuery': 'jquery',
       Common: 'common',
       swal: 'sweetalert'
     })
