@@ -1,5 +1,4 @@
 @import 'vars';
-@import 'content';
 
 * {
   margin: 0;
@@ -50,6 +49,27 @@ ul {
   margin-right: 8px;
 }
 
+.box {
+  float: left;
+  width: 100%;
+  padding: 1px;
+  border: 1px solid $border-color;
+  background-color: $box-bg;
+
+  .pure-menu {
+    .pure-menu-link {
+      padding: 5px 20px 3px;
+      font-weight: lighter;
+      font-size: 12px;
+
+      &:focus,
+      &:hover {
+        color: $active-color;
+      }
+    }
+  }
+}
+
 .box-title {
   display: table;
   text-align: center;
@@ -68,5 +88,46 @@ ul {
 
   h4 {
     margin-top: 15px;
+  }
+}
+
+.list-header {
+  min-width: 200px;
+  margin: 3px 5px;
+  height: $list-header-height;
+}
+
+.list-content {
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow: hidden;
+
+  .list-item {
+    &:hover {
+      color: $color;
+    }
+
+    .content {
+      display: inline-block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .right {
+      display: inline-block;
+      float: right;
+    }
+  }
+
+  ul {
+    overflow: auto;
+    height: 100%;
+
+    li {
+      min-width: 100px;
+      border-bottom: 1px dotted $bg;
+      margin-top: 5px;
+    }
   }
 }
