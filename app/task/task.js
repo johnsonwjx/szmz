@@ -15,7 +15,7 @@ function loadTab(index, taskType) {
       data: datas
     });
     $contentUl.html(html);
-    $contentUl.find('a').click(function() {
+    $contentUl.find('.list-item').click(function() {
       var $item = $(this),
         id = $item.attr('taskid'),
         status = $item.attr('status'),

@@ -13,7 +13,7 @@ function reLogin() {
 
 var status = {
   loadding: '<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i><span class="sr-only">加载中...</span>',
-  error: '<i class="fa fa-exclamation-circle fa-3x text-danger" aria-hidden="true"></i>'
+  error: '<i class="fa fa-exclamation-circle fa-3x" aria-hidden="true"></i>错误'
 };
 
 module.exports = {

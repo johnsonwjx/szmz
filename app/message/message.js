@@ -11,7 +11,7 @@ TaskService.getTasks("0", function(datas) {
   });
   $content.html(html);
   var $contentUl = $content.children('ul');
-  $contentUl.find('a').click(function() {
+  $contentUl.find('.list-item').click(function() {
     var $item = $(this),
       id = $item.attr('taskid'),
       status = $item.attr('status'),
