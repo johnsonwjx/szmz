@@ -65,7 +65,7 @@ module.exports = {
 };
 
 if (process.env.NODE_ENV !== 'production') {
-  module.exports.devtool = 'eval-source-map'; //配置生成Source Maps，选择合适的选项
+  module.exports.devtool = 'eval-module-source-map'; //配置生成Source Maps，选择合适的选项
   module.exports.entry.test = path.join(src, '/test.js');
   module.exports.devServer = {
     host: '0.0.0.0',
