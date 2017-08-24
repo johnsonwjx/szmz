@@ -8,7 +8,8 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
   entry: {
-    "index": path.join(src, '/index.js')
+    "index": path.join(src, '/index.js'),
+    "list": path.join(src, '/list.js')
   },
   output: {
     path: dist,
@@ -48,6 +49,12 @@ module.exports = {
       title: '深圳美芝',
       template: src + '/index.html',
       filename: dist + '/index.html'
+    }),
+    new HtmlWebpackPlugin({
+      chunks: ['list'],
+      title: '列表',
+      template: src + '/list.html',
+      filename: dist + '/list.html'
     }),
     new ExtractTextPlugin("[name].css"),
     new webpack.ProvidePlugin({

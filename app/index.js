@@ -2,6 +2,7 @@ require('purecss');
 require('font-awesome/scss/font-awesome.scss');
 require('sweetalert/dist/sweetalert.css');
 require('./scss/app.scss');
+require('./scss/index.scss');
 require('./tab/tab.js');
 require('./sidebar/sidebar.js');
 require('./navbar/navbar.js');
@@ -23,4 +24,3 @@ $.getJSON('business.do?action=getUserInfo', function(userInfo) {
 $('#sidebar iframe').attr('src', Common.rootpath + 'desktop2.1/jsp/mywork.jsp');
 
 $('#close-system').click(Common.reLogin);
-module.exports = {};

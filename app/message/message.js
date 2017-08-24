@@ -21,3 +21,8 @@ TaskService.getTasks("0", function(datas) {
 }, function() {
   $content.html(Common.status.error);
 }, true);
+
+$('#message .message-content .more').click(function() {
+  window.open('list.html?type=message');
+  return false;
+});

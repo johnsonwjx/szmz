@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>
+    <%= htmlWebpackPlugin.options.title %>
+  </title>
+  <script src="../../script/jquerylib/jquery.min.js"></script>
+</head>
+
+<body>
+  <%= require('html-loader!./sidebar/sidebar.html')%>
+    <div id="container">
+      <%= require('html-loader!./navbar/navbar.html')%>
+        <div id="content">
+          <div class="box">
+            <div class="list-header">
+              <h4><i class="fa fa-list icon-label" aria-hidden="true"></i><em>标题</em></h4>
+            </div>
+            <div class="list-content">
+              <ul>
+                <li>
+                  <a class="list-item" href="#"> <span class="content">test</span> <span class="right">2012-01-11</span> </a>
+                </li>
+                <li>
+                  <a class="list-item" href="#"> <span class="content">test</span> <span class="right">2012-01-11</span> </a>
+                </li>
+                <li>
+                  <a class="list-item" href="#"> <span class="content">test</span> <span class="right">2012-01-11</span> </a>
+                </li>
+                <li>
+                  <a class="list-item" href="#"> <span class="content">test</span> <span class="right">2012-01-11</span> </a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+    </div>
+    <%= require('html-loader!./password/password.html')%>
+</body>

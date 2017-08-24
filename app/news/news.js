@@ -15,3 +15,15 @@ $.getJSON(url, function(data) {
   });
   $('#news-big .list-content').html(html);
 });
+$('#news-business .more').click(function() {
+  window.open('list.html?type=news-business');
+  return false;
+});
+$('#news-company .more').click(function() {
+  window.open('list.html?type=news-company');
+  return false;
+});
+$('#news-big .more').click(function() {
+  window.open('list.html?type=news-big');
+  return false;
+});
