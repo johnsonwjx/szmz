@@ -33,14 +33,11 @@ module.exports = {
       test: /\.scss$/,
       loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader")
     }, {
-      test: /\.html$/,
-      loader: "html-loader"
-    }, {
       test: /\.(png|jpg|gif)$/,
-      loader: 'url-loader?limit=8192'
+      loader: 'url-loader?name=images/[name].[ext]&limit=8192',
     }, {
-      test: /\.(eot|svg|ttf|woff|woff2|png)\w*/,
-      loader: 'file'
+      test: /\.(eot|svg|ttf|woff|woff2)\w*/,
+      loader: 'file?name=fonts/[name].[ext]'
     }, {
       test: /\.tmpl$/,
       // loader: 'mustache'
@@ -52,6 +49,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       chunks: ['index'],
+      title: '深圳美芝',
       template: src + '/index.html',
       filename: dist + '/index.html'
     }),

@@ -1,0 +1,29 @@
+@import "../scss/vars";
+
+#common {
+  width: 50%!important;
+  height: 30%;
+  background-color: $common-bg!important;
+
+  > {
+    width: 100%;
+  }
+
+  #common-files {
+    width: 100%;
+    height: 33%;
+    border-bottom: 1px solid $border-color;
+  }
+
+  #common-sites {
+    height: 66%;
+    padding: 40px 15px;
+
+    > a {
+      padding-bottom: 10px;
+      color: #FFF;
+      float: left;
+      width: 50%;
+    }
+  }
+}

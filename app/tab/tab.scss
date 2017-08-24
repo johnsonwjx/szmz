@@ -69,13 +69,14 @@
 
   .tab-content {
     background-color: $tab-content-bg;
-    padding-top: $navbar-height + 5px;
+    padding-top: $tab-header-height + 5px;
     height: 100%;
 
     > ul {
       display: none;
     }
-    >ul.active{
+
+    > ul.active {
       display: block;
     }
   }

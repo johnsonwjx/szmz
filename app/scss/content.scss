@@ -39,23 +39,24 @@
         min-width: 100px;
         border-bottom: 1px dotted $bg;
         margin-top: 5px;
-        cursor: pointer;
 
-        &:hover {
-          color: $color;
+        > a {
+          &:hover {
+            color: $color;
+          }
+
+          .content {
+            display: inline-block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+
+          .right {
+            display: inline-block;
+            float: right;
+          }
         }
-      }
-
-      .content {
-        display: inline-block;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
-
-      .right {
-        display: inline-block;
-        float: right;
       }
     }
   }
@@ -142,42 +143,5 @@
     right: - $col-right-width;
     width: $col-right-width;
     margin-left: - $col-right-width;
-
-    #common {
-      width: 50%;
-      height: 30%;
-      background-color: $common-bg;
-
-      > {
-        width: 100%;
-      }
-
-      #common-files {
-        width: 100%;
-        height: 33%;
-        border-bottom: 1px solid $border-color;
-      }
-
-      #common-sites {
-        height: 66%;
-        padding: 40px 15px;
-
-        > a {
-          padding-bottom: 10px;
-          color: #FFF;
-          float: left;
-          width: 50%;
-        }
-      }
-    }
-
-    #notify {
-      width: 50%;
-      height: 30%;
-
-      i {
-        color: red;
-      }
-    }
   }
 }

@@ -3,17 +3,22 @@ var rootpath = window.location.href.substr(0, window.location.href.indexOf('port
 function errorHandle(response) {
   if (response.responseText === '未登录' || response.responseText.indexOf('<html>') !== -1) {
     reLogin();
-    return false;
   }
-  return true;
 }
 
 function reLogin() {
   window.location.href = rootpath + 'login.do?action=relogin';
+  return false;
 }
+
+var status = {
+  loadding: '<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i><span class="sr-only">加载中...</span>',
+  error: '<i class="fa fa-exclamation-circle fa-3x text-danger" aria-hidden="true"></i>'
+};
 
 module.exports = {
   rootpath: rootpath,
   errorHandle: errorHandle,
-  reLogin: reLogin
+  reLogin: reLogin,
+  status: status
 };

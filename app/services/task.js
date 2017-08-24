@@ -13,7 +13,7 @@ function getStyleWidthHeight(flowcode, taskid, taskType, wpid, customid) {
   return reStr;
 }
 
-function getTasks(taskType, callback, message) {
+function getTasks(taskType, callback, failCallback, message) {
   var url = Common.rootpath + 'loadMain.do?action=loadTaskByAjax&taskType=' + taskType + '&taskGpType=D&filter=';
   if (message) {
     //通知
@@ -39,9 +39,8 @@ function getTasks(taskType, callback, message) {
     }
     callback(datas);
   }).fail(function(response) {
-    if (!Common.errorHandle(response)) {
-      return;
-    }
+    Common.errorHandle(response);
+    failCallback(response);
   });
 }
 

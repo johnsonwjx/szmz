@@ -8,23 +8,27 @@ function loadTab(index, taskType) {
     return;
   }
 
+  var $contentUl = $('#tasks .tab-content ul:eq(' + index + ')');
+  $contentUl.html(Common.status.loadding);
   TaskService.getTasks(taskType, function(datas) {
     var html = taskTmpl.render({
       data: datas
     });
-    var $contentUl = $('#tasks .tab-content ul:eq(' + index + ')');
     $contentUl.html(html);
-    $contentUl.children('li').click(function() {
+    $contentUl.find('a').click(function() {
       var $item = $(this),
         id = $item.attr('taskid'),
         status = $item.attr('status'),
         fid = $item.attr('fid'),
         wtype = $item.attr('wtype');
       TaskService.openTask(id, status, fid, wtype, taskType);
+      return false;
     });
     $contentUl.siblings().removeClass('active');
     $contentUl.addClass('active');
     loaded.push(index);
+  }, function() {
+    $contentUl.html(Common.status.error);
   });
 }
 

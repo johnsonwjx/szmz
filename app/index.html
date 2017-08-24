@@ -5,280 +5,44 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>深圳美芝 </title>
+  <title>
+    <%= htmlWebpackPlugin.options.title %>
+  </title>
 </head>
 
 <body>
-  <div id="sidebar">
-    <div id="welcome">
-      <p>= WELCOME =</p>
-      <h4></h4>
-    </div>
-    <iframe></iframe>
-  </div>
-  <div id="container">
-    <div id="navbar">
-      <div class="right">
-        <div class="pure-menu pure-menu-horizontal">
-          <a href="#" class="pure-menu-heading">SYSTEM</a>
-          <ul class="pure-menu-list">
-            <li class="pure-menu-item"><a href="#" class="pure-menu-link">修改密码</a></li>
-            <li class="pure-menu-item"><a href="#" class="pure-menu-link">退出系统</a></li>
-            <li class="pure-menu-item"><a href="#" class="pure-menu-link">帮助手册</a></li>
-            <li class="pure-menu-item box-title">
-              <i id="close-system" class="fa fa-power-off fa-2x" aria-hidden="true"></i>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div id="content">
-      <div id="col-center" class="col">
-        <div id="news" class="box">
-          <div id="news-business" class="news">
-            <div class="news-title box-title">
-              <div>
-                <i class="fa fa-newspaper-o fa-3x" aria-hidden="true"></i>
-                <h4>行业新闻</h4>
-              </div>
-            </div>
-            <img src="./images/slice_1_3.gif" alt="">
-            <div class="news-content">
-              <p class="list-header">
-                <a href="" class="more">更多>></a>
-              </p>
-              <div class="list-content">
-              </div>
-
-            </div>
+  <%= require('html-loader!./sidebar/sidebar.html')%>
+    <div id="container">
+      <%= require('html-loader!./navbar/navbar.html')%>
+        <div id="content">
+          <div id="col-center" class="col">
+            <%= require('html-loader!./news/news.html')%>
+              <%= require('html-loader!./schedule/schedule.html')%>
           </div>
-          <div id="news-company" class="news">
-            <div class="news-title box-title">
-              <div>
-                <i class="fa fa-newspaper-o fa-3x" aria-hidden="true"></i>
-                <h4>行业新闻</h4>
-              </div>
+          <div id="col-left" class="col">
+            <div id="weather" class="box">
             </div>
-            <img src="./images/slice_1_3.gif" alt="">
-            <div class="news-content">
-              <p class="list-header">
-                <a href="" class="more">更多>></a>
-              </p>
-              <div class="list-content">
-              </div>
-            </div>
-
-          </div>
-          <div id="news-big" class="news">
-            <div class="news-title box-title">
-              <div>
-                <i class="fa fa-newspaper-o fa-3x" aria-hidden="true"></i>
-                <h4>行业新闻</h4>
-              </div>
-            </div>
-            <img src="./images/slice_1_3.gif" alt="">
-            <div class="news-content">
-              <p class="list-header">
-                <a href="" class="more">更多>></a>
-              </p>
-              <div class="list-content">
-              </div>
-            </div>
-
-          </div>
-        </div>
-        <div id="schedule" class="box">
-          <div class="calendar">
-            <div class="month">
-              August 2017 &#10094; &#10093;
-            </div>
-            <ul class="weekdays">
-              <li>Su</li>
-              <li>Mo</li>
-              <li>Tu</li>
-              <li>We</li>
-              <li>Th</li>
-              <li>Fr</li>
-              <li>Sa</li>
-            </ul>
-            <ul class="days">
-              <li>0</li>
-              <li>1</li>
-              <li>2</li>
-              <li>3</li>
-              <li>4</li>
-              <li>5</li>
-              <li>6</li>
-              <li>7</li>
-              <li>8</li>
-              <li><span class="active">9</span></li>
-              <li>10</li>
-              <li>11</li>
-              <li>12</li>
-              <li>13</li>
-              <li>14</li>
-              <li>15</li>
-              <li>16</li>
-              <li>17</li>
-              <li>18</li>
-              <li>19</li>
-              <li>20</li>
-              <li>21</li>
-              <li>22</li>
-              <li>23</li>
-              <li>24</li>
-              <li>25</li>
-              <li>26</li>
-              <li>27</li>
-              <li>28</li>
-              <li>29</li>
-              <li>30</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div id="col-left" class="col">
-        <div id="weather" class="box">
-        </div>
-        <div id="tasks" class="box tab">
-          <div class="tab-header pure-menu pure-menu-horizontal">
-            <ul class="pure-menu-list">
-              <li class="pure-menu-item pure-menu-link active" taskType="0">
-                待办
-                <div class="anchor">
-                  <div class="triangle-border tb-border"></div>
-                  <div class="triangle-border tb-background"></div>
-                </div>
-              </li>
-              <li class="pure-menu-item divider"></li>
-              <li class="pure-menu-item pure-menu-link" taskType="1">
-                跟踪
-                <div class="anchor">
-                  <div class="triangle-border tb-border"></div>
-                  <div class="triangle-border tb-background"></div>
-                </div>
-              </li>
-              <li class="pure-menu-item divider"></li>
-              <li class="pure-menu-item pure-menu-link" taskType="2">
-                完成
-                <div class="anchor">
-                  <div class="triangle-border tb-border"></div>
-                  <div class="triangle-border tb-background"></div>
-                </div>
-              </li>
-              <li class="pure-menu-item divider"></li>
-            </ul>
-          </div>
-          <div class="tab-content list-content">
-            <ul></ul>
-            <ul></ul>
-            <ul></ul>
-          </div>
-        </div>
-        <div id="attendance-person" class="box box-title">
-          <a href="#">
+            <%= require('html-loader!./task/task.html')%>
+              <div id="attendance-person" class="box box-title">
+                <a href="#">
             <i class="fa fa-hand-o-up fa-3x" aria-hidden="true"></i>
             <h4>个人考勤</h4>
           </a>
-        </div>
-        <div id="attendance-company" class="box box-title">
-          <a href="#">
+              </div>
+              <div id="attendance-company" class="box box-title">
+                <a href="#">
             <i class="fa fa-calendar-check-o fa-3x" aria-hidden="true"></i>
             <h4>公司考勤</h4>
           </a>
-        </div>
-      </div>
-      <div id="col-right" class="col">
-        <div id="message" class="box">
-          <div class="box-title">
-            <i class="fa fa-volume-up fa-3x" aria-hidden="true"></i>
+              </div>
           </div>
-          <div class="message-content">
-            <h4 class="list-header">通知公告<a href="#"class="more">更多>></a></h4>
-            <div class="list-content">
-
-            </div>
+          <div id="col-right" class="col">
+            <%= require('html-loader!./message/message.html')%>
+              <%= require('html-loader!./finance/finance.html')%>
+                <%= require('html-loader!./common/common.html')%>
+                  <%= require('html-loader!./notify/notify.html')%>
+                    <%= require('html-loader!./contact/contact.html')%>
           </div>
         </div>
-        <div id="finance" class="box">
-          <div class="finance-title box-title">
-            <div>
-              <i class="fa fa-jpy fa-3x" aria-hidden="true"></i>
-              <h4>个人财务</h4>
-            </div>
-          </div>
-          <div id="finance-content">
-            <div id="borrow" class="box-title">
-              <a href="">
-                <i class="icon-label fa fa-handshake-o fa-2x" aria-hidden="true"></i> 借款
-            </a>
-            </div>
-            <div id="reimbursment" class="box-title">
-              <a href="">
-              <i class="icon-label fa fa-list-alt fa-2x" aria-hidden="true"></i> 报销
-          </a>
-            </div>
-            <div id="salary" class="box-title">
-              <a href="">
-                <i class="icon-label fa fa-th-list fa-2x" aria-hidden="true"></i>工资表
-            </a>
-            </div>
-          </div>
-        </div>
-        <div id="common" class="box">
-          <div id="common-files" class="box-title">
-            <a href="#"> <i class="icon-label fa fa-folder fa-2x" aria-hidden="true"></i> 常用文件 </a>
-          </div>
-          <div id="common-sites">
-            <a href="#"> <i class="icon-label fa fa-folder fa-2x" aria-hidden="true"></i>公司官网 </a>
-            <a href="#"> <i class="icon-label fa fa-folder fa-2x" aria-hidden="true"></i> 企业邮箱 </a>
-            <a href="#"> <i class="icon-label fa fa-folder fa-2x" aria-hidden="true"></i> 企查查 </a>
-            <a href="#"> <i class="icon-label fa fa-folder fa-2x" aria-hidden="true"></i> 工商局 </a>
-          </div>
-        </div>
-        <div id="notify" class="tab box">
-          <div class="tab-header pure-menu pure-menu-horizontal">
-            <ul class="pure-menu-list">
-              <li class="pure-menu-item pure-menu-link active">
-                生日提醒
-                <div class="anchor">
-                  <div class="triangle-border tb-border"></div>
-                  <div class="triangle-border tb-background"></div>
-                </div>
-              </li>
-              <li class="pure-menu-item divider"></li>
-              <li class="pure-menu-item pure-menu-link">
-                证书到期提醒
-                <div class="anchor">
-                  <div class="triangle-border tb-border"></div>
-                  <div class="triangle-border tb-background"></div>
-                </div>
-              </li>
-              <li class="pure-menu-item divider"></li>
-            </ul>
-          </div>
-          <div class="tab-content list-content">
-            <ul class="active">
-              <li>人事哈哈今天生日 <a href="" class="right">送上祝福<i class="fa fa-gift" aria-hidden="true"></i></a></li>
-              <li>人事哈哈今天生日 <a href="" class="right">送上祝福<i class="fa fa-gift" aria-hidden="true"></i></a></li>
-            </ul>
-            <ul>
-              <li>xxxxxx11xx <a href="" class="right">送上祝福<i class="fa fa-gift" aria-hidden="true"></i></a></li>
-              <li>dddddddddd <a href="" class="right">送上祝福<i class="fa fa-gift" aria-hidden="true"></i></a></li>
-            </ul>
-          </div>
-        </div>
-        <div id="contact" class="box">
-          <div class="list-header">
-            <label for="contract-search">  <i class="icon-label fa fa-address-book" aria-hidden="true"></i>通讯录</label>
-            <input id="contract-search" type="text" placeholder="查询">
-            <a href=""><i class="fa fa-search" aria-hidden="true"></i></a>
-          </div>
-          <div class="tree">
-
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
 </body>
