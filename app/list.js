@@ -8,6 +8,7 @@ require('./tab/tab.js');
 require('./sidebar/sidebar.js');
 require('./navbar/navbar.js');
 require('jqPaginator/dist/1.2.0/jqPaginator.min.js');
+var getData;
 
 function initPage(currentPage, totalPages) {
   $('#pagination').jqPaginator({
@@ -21,7 +22,7 @@ function initPage(currentPage, totalPages) {
     page: '<li class="page"><a href="javascript:void(0);">{{page}}<\/a><\/li>',
     onPageChange: function(num, type) {
       if (type === 'change') {
-        getData(num);
+        getData && getData(num);
       }
     }
   });
@@ -35,33 +36,18 @@ var type = Common.param('type'),
 switch (type) {
   case 'message':
     var TaskService = require('services/task.js');
-    var getData = function(page) {
-      $content.html(Common.status.loadding);
-      return TaskService.getTasks({
-        taskType: 0,
-        nowPage: page
-      }, function(datas) {
-        var html = messageTmpl.render({
-          data: datas
-        });
-        $content.html(html);
-        var $contentUl = $content.children('ul');
-        $contentUl.find('.list-item').click(function() {
-          var $item = $(this),
-            id = $item.attr('taskid'),
-            status = $item.attr('status'),
-            fid = $item.attr('fid'),
-            wtype = $item.attr('wtype');
-          TaskService.openTask(id, status, fid, wtype, '0');
-        });
-      }, function() {
-        $content.html(Common.status.error);
-      }, true);
-    };
     title = '通知公告列表';
     var messageTmpl = require('message/message.tmpl');
-    getData().then(function(rawData) {
-      initPage(parseInt(rawData.page), parseInt(rawData.pagecount));
+    getData = function(page) {
+      return TaskService.getTasks({
+        taskType: 0,
+        getnoftify: 1,
+        allnotify: 0,
+        nowPage: page
+      }, $content, messageTmpl);
+    };
+    getData().then(function(data) {
+      initPage(parseInt(data.page), parseInt(data.pagecount));
     });
     break;
   case 'news-business':

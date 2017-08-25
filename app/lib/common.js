@@ -16,7 +16,7 @@ function reLogin() {
 
 var status = {
   loadding: '<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i><span class="sr-only">加载中...</span>',
-  error: '<i class="fa fa-exclamation-circle fa-3x" aria-hidden="true"></i>错误'
+  error: '<i class="fa fa-exclamation-circle fa-3x error" aria-hidden="true"></i>错误'
 };
 
 function param(key) {
@@ -24,10 +24,28 @@ function param(key) {
   var match = location.search.match(new RegExp("[?&]" + key + "=([^&]+)(&|$)"));
   return match && decodeURIComponent(match[1].replace(/\+/g, " "));
 }
+
+function getJSONFail(response, $content) {
+  if (response.status === 200) {
+    $content.html('');
+  } else {
+    $content.html(Common.status.error);
+  }
+}
+
+function getJSON(url, $content) {
+  $content.html(status.loadding);
+  return $.getJSON(url).fail(function(response) {
+    getJSONFail(response, $content);
+  });
+}
+
 module.exports = {
   rootpath: rootpath,
   errorHandle: errorHandle,
   reLogin: reLogin,
   status: status,
-  param: param
+  param: param,
+  getJSON: getJSON,
+  getJSONFail: getJSONFail
 };

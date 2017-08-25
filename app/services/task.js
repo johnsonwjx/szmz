@@ -5,18 +5,15 @@ function getStyleWidthHeight(flowcode, taskid, taskType, wpid, customid) {
   return $.get(url);
 }
 
-function getTasks(param, callback, failCallback, message) {
+function getTasks(param, $emenent, templ) {
   param = $.param(param);
   var url = Common.rootpath + 'loadMain.do?action=loadTaskByAjax&taskGpType=D&filter=&' + param;
-  if (message) {
-    //通知
-    url += "&getnoftify=1&allnotify=0";
-  }
-  return $.getJSON(url, function(rawData) {
-    var datas = [];
+  $emenent.html(Common.status.loadding);
+  return $.getJSON(url).then(function(rawData) {
+    var tasks = [];
     if (rawData.titleinfo.length > 0) {
       var items = rawData.data[rawData.titleinfo[0][0]];
-      datas = $.map(items, function(itemArr) {
+      tasks = $.map(items, function(itemArr) {
         var timeArr = itemArr[3].split(' ');
         return {
           id: itemArr[0],
@@ -30,10 +27,24 @@ function getTasks(param, callback, failCallback, message) {
         };
       });
     }
-    callback(datas);
+    rawData.tasks = tasks;
+    var html = templ.render({
+      data: tasks
+    });
+    $emenent.html(html);
+    $emenent.find('.list-item').click(function() {
+      var $item = $(this),
+        id = $item.attr('taskid'),
+        status = $item.attr('status'),
+        fid = $item.attr('fid'),
+        wtype = $item.attr('wtype');
+      openTask(id, status, fid, wtype, param.taskType);
+      return false;
+    });
+    return rawData;
   }).fail(function(response) {
     Common.errorHandle(response);
-    failCallback(response);
+    Common.getJSONFail(response, $emenent);
   });
 }
 
