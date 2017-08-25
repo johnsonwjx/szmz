@@ -1,1 +1,1 @@
-require('./schedule.scss')
+require('./schedule.scss');
