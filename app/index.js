@@ -15,12 +15,3 @@ require('./task/task.js');
 require('./weather/weather.js');
 require('./common/common.js');
 require('./notify/notify.js');
-$.getJSON('business.do?action=getUserInfo', function(userInfo) {
-  $('#welcome h4').html('欢迎您:' + userInfo.username + ' 角色:管理员');
-  window.userInfo = userInfo;
-}).fail(function() {
-  Common.reLogin();
-});
-$('#sidebar iframe').attr('src', Common.rootpath + 'desktop2.1/jsp/mywork.jsp');
-
-$('#close-system').click(Common.reLogin);

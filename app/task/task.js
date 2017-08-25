@@ -10,7 +10,9 @@ function loadTab(index, taskType) {
 
   var $contentUl = $('#tasks .tab-content ul:eq(' + index + ')');
   $contentUl.html(Common.status.loadding);
-  TaskService.getTasks(taskType, function(datas) {
+  TaskService.getTasks({
+    taskType: taskType
+  }, function(datas) {
     var html = taskTmpl.render({
       data: datas
     });

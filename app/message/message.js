@@ -4,7 +4,9 @@ var TaskService = require('../services/task.js');
 // var url = 'datas/message.json';
 var $content = $('#message .message-content .list-content');
 $content.html(Common.status.loadding);
-TaskService.getTasks("0", function(datas) {
+TaskService.getTasks({
+  taskType: '0'
+}, function(datas) {
   var html = messageTmpl.render({
     data: datas
   });

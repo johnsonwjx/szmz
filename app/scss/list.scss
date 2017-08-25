@@ -1,19 +1,43 @@
+@import "vars.scss";
+$pagination-height: 50px;
+
+#container {
+  overflow: auto;
+}
+
 #content {
-  height: 100%;
+  overflow: auto;
+  position: absolute;
+  top: $navbar-height;
+  bottom: 0;
+  width: 100%;
 
   .box {
     height: 100%;
-    padding: 5px 20px;
+
+    > * {
+      width: 100%;
+    }
+
+    .list-header {}
 
     .list-content {
-      overflow: auto;
-      height: 100%;
+      position: absolute;
+      top: $list-header-height;
+      bottom: $pagination-height;
+      padding: 0 20px;
 
       .list-item {
         .content {
           width: 92%;
         }
       }
+    }
+
+    #pagination {
+      position: absolute;
+      bottom: 0;
+      height: $pagination-height;
     }
   }
 }

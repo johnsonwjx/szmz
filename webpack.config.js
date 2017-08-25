@@ -75,7 +75,7 @@ if (process.env.NODE_ENV !== 'production') {
     hot: true,
     inline: true,
     progress: true
-  }
+  };
   module.exports.plugins = (module.exports.plugins || []).concat([
     new webpack.HotModuleReplacementPlugin(), //热加载插件
     new HtmlWebpackPlugin({
@@ -112,5 +112,5 @@ if (process.env.NODE_ENV === 'production') {
       from: "static/WEB-INF",
       to: "WEB-INF"
     }])
-  ])
+  ]);
 }

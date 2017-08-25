@@ -8,3 +8,5 @@ $('#help').click(function() {
   swal('开发中...');
   return false;
 });
+
+$('#close-system').click(Common.reLogin);
