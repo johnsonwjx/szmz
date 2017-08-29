@@ -1,4 +1,6 @@
 @import "../scss/vars";
+$news-title-width: 60px;
+$news-img-width: 150px;
 
 #news {
   height: 70%;
@@ -19,24 +21,25 @@
       clear: both;
     }
 
-    .news-title {
-      width: 20%;
-      background-color: $news-title-bg;
-      color: #FFF;
-    }
-
     .news-content {
       position: relative;
-      width: 60%;
-      padding: 3px 15px;
+      width: 100%;
+      margin-left: - $news-title-width - $news-img-width;
+      padding: 3px 15px 3px $news-title-width + $news-img-width;
 
       a {
         color: #FFF;
       }
     }
 
+    .news-title {
+      width: $news-title-width;
+      background-color: $news-title-bg;
+      color: #FFF;
+    }
+
     img {
-      width: 20%;
+      width: $news-img-width;
     }
   }
 }

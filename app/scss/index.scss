@@ -1,8 +1,6 @@
 @import "vars";
 
 #content {
-  min-width: $min-width - $sidebar-width;
-  min-height: 800px;
   height: 100%;
   margin-top: - $navbar-height;
   padding-top: $navbar-height;
@@ -29,6 +27,7 @@
       clear: both;
     }
   }
+
   .more {
     float: right;
 

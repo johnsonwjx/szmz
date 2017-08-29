@@ -1,4 +1,5 @@
 @import "../scss/vars";
+$message-title-width: 60px;
 
 #message {
   height: 40%;
@@ -9,14 +10,15 @@
   }
 
   .box-title {
-    width: 20%;
+    width: $message-title-width;
     background-color: $message-logo-bg;
   }
 
   .message-content {
     position: relative;
-    width: 80%;
-    padding: 10px;
+    margin-left: - $message-title-width;
+    width: 100%;
+    padding: 10px 10px 10px $message-title-width;
 
     .more {
       color: $active-color;

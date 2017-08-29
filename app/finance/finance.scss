@@ -1,4 +1,5 @@
 @import "../scss/vars";
+$finance-title-width: 60px;
 
 #finance {
   width: 50%!important;
@@ -11,12 +12,14 @@
   }
 
   .finance-title {
-    width: 30%;
+    width: $finance-title-width;
     border-right: 1px solid $border-color;
   }
 
   #finance-content {
-    width: 70%;
+    width: 100%;
+    margin-left: - $finance-title-width;
+    padding-left: $finance-title-width;
 
     > * {
       height: 33%;
