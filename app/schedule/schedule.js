@@ -1,6 +1,11 @@
 require('./schedule.scss');
 require('@fengyuanchen/datepicker/dist/datepicker.min.js');
 require('@fengyuanchen/datepicker/dist/datepicker.css');
+var scheduleTmpl = require('./schedule.tmpl');
+var url = 'datas/schedules.json',
+  $content = $('.list-content tbody'),
+  $dateInput = $('[name="schedule-time"]');
+
 $.fn.datepicker.languages['zh-CN'] = {
   format: 'yyyy年mm月dd日',
   days: ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],
@@ -13,19 +18,36 @@ $.fn.datepicker.languages['zh-CN'] = {
   yearFirst: true,
   yearSuffix: '年'
 };
-$('[name="schedule-time"]').datepicker({
+$dateInput.datepicker({
   autoShow: true,
   inline: true,
   container: '#calendar',
-  language: 'zh-CN'
+  language: 'zh-CN',
+  format: 'yyyy-mm-dd',
+  pick: getSchedule
 });
-
-$('#schedule .list-content .edit').click(function() {
-  swal('开发中...');
-  return false;
-});
-
 $('#schedule .action').click(function() {
   swal('开发中...');
   return false;
 });
+
+function getSchedule() {
+  var date = $dateInput.datepicker('getDate', true);
+  Common.getJSON(url + '?date=' + date, $content).then(function(data) {
+    data = $.map(data, function(item) {
+      item.event = date + ',  ' + item.event;
+      return item;
+    });
+    var html = scheduleTmpl.render({
+      schedules: data
+    });
+    $content.html(html);
+    $content.find('.edit').click(function() {
+      swal('开发中...');
+      return false;
+    });
+
+  });
+}
+
+$dateInput.datepicker('pick');
