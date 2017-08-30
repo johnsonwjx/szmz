@@ -18,21 +18,27 @@ $.fn.datepicker.languages['zh-CN'] = {
   yearFirst: true,
   yearSuffix: '年'
 };
+
+function formatDate(date) {
+  return date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate();
+}
 $dateInput.datepicker({
   autoShow: true,
   inline: true,
   container: '#calendar',
   language: 'zh-CN',
   format: 'yyyy-mm-dd',
-  pick: getSchedule
+  pick: function(event) {
+    getSchedule(event.date);
+  }
 });
 $('#schedule .action').click(function() {
   swal('开发中...');
   return false;
 });
 
-function getSchedule() {
-  var date = $dateInput.datepicker('getDate', true);
+function getSchedule(date) {
+  date = formatDate(date);
   Common.getJSON(url + '?date=' + date, $content).then(function(data) {
     data = $.map(data, function(item) {
       item.event = date + ',  ' + item.event;
@@ -50,4 +56,4 @@ function getSchedule() {
   });
 }
 
-$dateInput.datepicker('pick');
+getSchedule(new Date());
