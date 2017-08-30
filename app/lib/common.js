@@ -29,7 +29,7 @@ function getJSONFail(response, $content) {
   if (response.status === 200) {
     $content.html('');
   } else {
-    $content.html(Common.status.error);
+    $content.html(status.error);
   }
 }
 
