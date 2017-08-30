@@ -8,7 +8,7 @@
   <title>
     <%= htmlWebpackPlugin.options.title %>
   </title>
-  <script src="../../system/form2/script/dialog/jquery-min.js"></script>
+  <link rel="stylesheet" href="./index.css">
 </head>
 
 <body>
@@ -23,7 +23,7 @@
           <div id="col-left" class="col">
             <div id="weather" class="box">
             </div>
-            <%= require('html-loader!./schedule/schedule.html')%>
+            <%= require('html-loader!./message/message.html')%>
               <div id="attendance-person" class="box box-title">
                 <a href="#">
             <i class="fa fa-hand-o-up fa-3x" aria-hidden="true"></i>
@@ -38,7 +38,7 @@
               </div>
           </div>
           <div id="col-right" class="col">
-            <%= require('html-loader!./message/message.html')%>
+            <%= require('html-loader!./schedule/schedule.html')%>
               <%= require('html-loader!./finance/finance.html')%>
                 <%= require('html-loader!./common/common.html')%>
                   <%= require('html-loader!./notify/notify.html')%>
@@ -46,5 +46,6 @@
           </div>
         </div>
     </div>
+    <script src="./index.js" charset="utf-8"></script>
     <%= require('html-loader!./password/password.html')%>
 </body>

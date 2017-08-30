@@ -4,49 +4,75 @@ $calendar-days-bg: #FFF;
 
 #schedule {
   height: 40%;
-}
+  position: relative;
 
-.calendar {
-  ul {
-    list-style: none;
-  }
+  #calendar {
+    .datepicker-container {
+      width: 100%;
 
-  .month {
-    padding: 10px;
-    background: $bg;
-    width: 100%;
-    font-size: 17px;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-  }
+      .datepicker-panel {
+        .picked {
+          background: $color;
+          color: #FFF;
+        }
 
-  .weekdays {
-    margin: 0;
-    background-color: $calendar-days-bg;
+        .week {
+          color: $active-color;
+        }
 
-    li {
-      display: inline-block;
-      width: $calendar-days-width;
-      padding: 5px;
-      color: $active-color;
-      text-align: center;
-      font-size: 20px;
+        ul:first-child {
+          font-size: 15px;
+          font-weight: bolder;
+          border-bottom: 1px solid $border-color;
+
+          li[data-view~="current"] {
+            width: 60%;
+          }
+
+          li[data-view~="next"],
+          li[data-view~="prev"] {
+            width: 20%;
+          }
+        }
+
+        ul[data-view="week"] {
+          color: $active-color;
+        }
+
+        ul {
+          li {
+            width: 13.5%;
+          }
+        }
+      }
     }
   }
 
-  .days {
-    @extend .weekdays;
+  .action {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+  }
 
-    li {
-      margin-bottom: 5px;
-      font-size: 12px;
-      color: #777;
+  .list-content {
+    position: absolute;
+    top: 242px;
+    bottom: 0;
+    width: 100%;
+    overflow-y: scroll;
 
-      .active {
-        padding: 5px;
-        background: $color;
-        color: white !important;
+    .pure-table {
+      width: 100%;
+      table-layout: fixed;
+
+      thead {
+        background: none;
+      }
+
+      td {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
     }
   }

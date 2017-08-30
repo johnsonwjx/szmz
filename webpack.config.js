@@ -24,6 +24,9 @@ module.exports = {
   module: {
     //加载器配置
     loaders: [{
+      test: require.resolve("jquery"),
+      loader: "expose-loader?$!expose-loader?jQuery"
+    }, {
       test: /\.css$/,
       loader: ExtractTextPlugin.extract("style-loader", "css-loader")
     }, {
@@ -47,12 +50,14 @@ module.exports = {
     new HtmlWebpackPlugin({
       chunks: ['index'],
       title: '深圳美芝',
+      inject: false,
       template: src + '/index.html',
       filename: dist + '/index.html'
     }),
     new HtmlWebpackPlugin({
       chunks: ['list'],
       title: '列表',
+      inject: false,
       template: src + '/list.html',
       filename: dist + '/list.html'
     }),

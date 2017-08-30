@@ -3,6 +3,7 @@ require('font-awesome/scss/font-awesome.scss');
 require('sweetalert/dist/sweetalert.css');
 require('./scss/app.scss');
 require('./scss/index.scss');
+require('jquery');
 require('./tab/tab.js');
 require('./sidebar/sidebar.js');
 require('./navbar/navbar.js');

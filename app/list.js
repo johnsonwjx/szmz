@@ -4,6 +4,7 @@ require('sweetalert/dist/sweetalert.css');
 require('./scss/app.scss');
 require('./scss/list.scss');
 require('./scss/pagination.scss');
+require('jquery');
 require('./tab/tab.js');
 require('./sidebar/sidebar.js');
 require('./navbar/navbar.js');
