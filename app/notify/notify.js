@@ -5,7 +5,7 @@ var $birthdayUl = $('#notify .tab-content>ul:eq(0)');
 var $expireUl = $('#notify .tab-content>ul:eq(1)');
 $birthdayUl.html(Common.status.loading);
 var url = 'datas/notify.json';
-$.getJSON(url, function(data) {
+Common.getJSON(url, $('#notify .tab-content>ul')).then(function(data) {
   var html = birthdayTmpl.render(data);
   $birthdayUl.html(html);
   html = expireTmpl.render(data);
@@ -14,7 +14,4 @@ $.getJSON(url, function(data) {
     swal('开发中...');
     return;
   });
-}).fail(function() {
-  $birthdayUl.html(Common.status.error);
-  $expireUl.html(Common.status.error);
 });

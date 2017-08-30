@@ -8,8 +8,7 @@ function getStyleWidthHeight(flowcode, taskid, taskType, wpid, customid) {
 function getTasks(param, $emenent, templ) {
   param = $.param(param);
   var url = Common.rootpath + 'loadMain.do?action=loadTaskByAjax&taskGpType=D&filter=&' + param;
-  $emenent.html(Common.status.loadding);
-  return $.getJSON(url).then(function(rawData) {
+  return Common.getJSON(url, $emenent).then(function(rawData) {
     var tasks = [];
     if (rawData.titleinfo.length > 0) {
       var items = rawData.data[rawData.titleinfo[0][0]];
@@ -42,9 +41,6 @@ function getTasks(param, $emenent, templ) {
       return false;
     });
     return rawData;
-  }).fail(function(response) {
-    Common.errorHandle(response);
-    Common.getJSONFail(response, $emenent);
   });
 }
 
