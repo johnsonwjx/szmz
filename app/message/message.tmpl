@@ -1,10 +1,12 @@
 <ul>
-  {{#data}}
+  {{#tasks}}
   <li>
     <a class="list-item" href="#" taskid="{{id}}" fid="{{fid}}" status="{{status}}" wtype="{{wtype}}">
-      <span class="content">{{title}}</span>
-      <span class="right">{{date}}</span>
+      <span class="content">
+        {{title}}<span class="right">{{date}}</span>
+      </span>
+
     </a>
   </li>
-  {{/data}}
+  {{/tasks}}
 </ul>
