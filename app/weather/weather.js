@@ -87,21 +87,11 @@ getData().then(function (data) {
 });
 
 function getWeatherForceast(city) {
-  return $.get('http://api.openweathermap.org/data/2.5/forecast', defaultQueryParam(city));
+  return $.get('business.do?action=queryWeather&type=forecast&city=' + city);
 }
 
 function getCurrentWeather(city) {
-  return $.get('http://api.openweathermap.org/data/2.5/weather', defaultQueryParam(city));
-}
-
-function defaultQueryParam(city) {
-  return {
-    // this key just for test
-    appid: 'c9d49310f8023ee2617a7634de23c2aa',
-    units: 'metric',
-    lang: 'zh',
-    q: city + ',cn'
-  };
+  return $.get('business.do?action=queryWeather&type=weather&city=' + city);
 }
 
 function getData() {
