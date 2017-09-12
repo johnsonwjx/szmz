@@ -1,9 +1,23 @@
+@import "../scss/vars";
+
 #notify {
-  width: 50% !important;
+  width: $col-right-width / 2 !important;
   height: 30%;
 
   .tab-header {
     padding: 0;
+  }
+
+  .tab-content {
+    height: 98%;
+
+    .list-item {
+      .right {
+        position: static;
+        display: inline-block;
+        float: right;
+      }
+    }
   }
 
   .gift {

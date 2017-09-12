@@ -9,7 +9,8 @@ var CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
   entry: {
     "index": path.join(src, '/index.js'),
-    "list": path.join(src, '/list.js')
+    "list": path.join(src, '/list.js'),
+    "detail": path.join(src, '/detail.js')
   },
   output: {
     path: dist,
@@ -61,6 +62,14 @@ module.exports = {
       template: src + '/list.html',
       filename: dist + '/list.html'
     }),
+    new HtmlWebpackPlugin({
+      chunks: ['detail'],
+      title: '详情',
+      inject: false,
+      template: src + '/detail.html',
+      filename: dist + '/detail.html'
+    }),
+
     new ExtractTextPlugin("[name].css"),
     new webpack.ProvidePlugin({
       Common: 'common',

@@ -1,12 +1,10 @@
 <ul>
-  {{#tasks}}
+  {{#message}}
   <li>
-    <a class="list-item" href="#" taskid="{{id}}" fid="{{fid}}" status="{{status}}" wtype="{{wtype}}">
-      <span class="content">
-        {{title}}<span class="right">{{date}}</span>
-      </span>
-
+    <a class="list-item" href="#" newsid={{id}}>
+      <span class="content"> {{newstitle}} </span>
+      <span class="right">{{issue_date}}</span>
     </a>
   </li>
-  {{/tasks}}
+  {{/message}}
 </ul>

@@ -38,10 +38,7 @@ $message-title-width: 60px;
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: normal;
-
-          .right {
-            margin-top: 3px;
-          }
+          width: $col-left-width - 180px;
         }
       }
     }

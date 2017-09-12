@@ -1,7 +1,7 @@
 @import "../scss/vars";
 
 #common {
-  width: 50%!important;
+  width: $col-right-width / 2 !important;
   height: 30%;
   background-color: $common-bg!important;
 

@@ -1,7 +1,7 @@
 @import "../scss/vars";
 
 #contact {
-  width: 50% !important;
+  width: $col-right-width / 2 !important;
   height: 30%;
 
   #contract-search {

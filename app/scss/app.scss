@@ -57,7 +57,8 @@ ul {
   float: left;
   width: 100%;
   padding: 1px;
-  border: 1px solid $border-color;
+  border-top: 5px solid $border-color;
+  border-left: 5px solid $border-color;
   background-color: $box-bg;
 
   .pure-menu {
@@ -119,8 +120,8 @@ ul {
     }
 
     .right {
-      display: inline-block;
-      float: right;
+      position: absolute;
+      right: 5px;
     }
   }
 
@@ -130,8 +131,6 @@ ul {
 
     li {
       min-width: 100px;
-      border-bottom: 1px dotted $bg;
-      margin-top: 5px;
     }
   }
 }

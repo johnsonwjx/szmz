@@ -8,7 +8,7 @@
   <title>
     <%= htmlWebpackPlugin.options.title %>
   </title>
-  <link rel="stylesheet" href="./list.css">
+  <link rel="stylesheet" href="./detail.css">
 </head>
 
 <body>
@@ -16,16 +16,15 @@
     <div id="container">
       <%= require('html-loader!./navbar/navbar.html')%>
         <div id="content">
-          <div class="box">
-            <div class="list-header">
-              <h4><i class="fa fa-list icon-label" aria-hidden="true"></i><em>标题</em></h4>
-            </div>
-            <div class="list-content">
-            </div>
-            <div id="pagination" class="paginate"></div>
-          </div>
+          <iframe id="detail" width="100%"></iframe>
+          <p id="issue_user"></p>
+          <fieldset id="affix">
+            <legend>附件</legend>
+            <ol>
+            </ol>
+          </fieldset>
         </div>
     </div>
-    <script src="./list.js" charset="utf-8"></script>
+    <script src="./detail.js" charset="utf-8"></script>
     <%= require('html-loader!./password/password.html')%>
 </body>

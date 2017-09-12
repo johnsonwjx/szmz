@@ -2,7 +2,7 @@
 $finance-title-width: 60px;
 
 #finance {
-  width: 50%!important;
+  width: $col-right-width / 2  !important;
   height: 30%;
   background-color: $finance-bg!important;
 

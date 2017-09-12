@@ -54,13 +54,13 @@
     }
 
     #attendance-company {
-      width: 50%;
+      width: $col-left-width / 2;
       height: 30%;
       background-color: $attendance-company-bg;
     }
 
     #attendance-person {
-      width: 50%;
+      width: $col-left-width / 2;
       height: 30%;
       background-color: $attendance-person-bg;
     }

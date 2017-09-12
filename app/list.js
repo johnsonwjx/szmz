@@ -9,7 +9,9 @@ require('./tab/tab.js');
 require('./sidebar/sidebar.js');
 require('./navbar/navbar.js');
 require('jqPaginator/dist/1.2.0/jqPaginator.min.js');
-var getData;
+var messageTmpl = require('message/message.tmpl');
+var NewsUtil = require('./services/news.js');
+var _ = require('lodash');
 
 function initPage(currentPage, totalPages) {
   $('#pagination').jqPaginator({
@@ -33,38 +35,40 @@ $('#sidebar iframe').attr('src', Common.rootpath + 'desktop2.1/jsp/mywork.jsp');
 var type = Common.param('type'),
   $content = $('.list-content'),
   $header = $('.list-header h4 em'),
-  title = '列表';
+  title = '列表',
+  getData = function(page) {
+    return Common.getJSON('business.do?action=loadNewsByPage&type=' + type + '&page=' + page, $content);
+  };
 switch (type) {
   case 'message':
-    var TaskService = require('services/task.js');
     title = '通知公告列表';
-    var messageTmpl = require('message/message.tmpl');
-    getData = function(page) {
-      return TaskService.getTasks({
-        taskType: 0,
-        getnoftify: 1,
-        allnotify: 0,
-        nowPage: page
-      }, $content, messageTmpl);
-    };
-    getData().then(function(data) {
-      initPage(parseInt(data.page), parseInt(data.pagecount));
-    });
     break;
-  case 'news-business':
+  case 'business':
     title = '行业新闻列表';
-    initPage(1, 10);
     break;
-  case 'news-company':
+  case 'company':
     title = '公司新闻列表';
-    initPage(1, 10);
     break;
-  case 'news-big':
+  case 'big':
     title = '大事件列表';
-    initPage(1, 10);
     break;
   default:
     break;
 }
 document.title = title;
 $header.html(title);
+getData(1).then(function(data) {
+  var html = messageTmpl.render({
+    message: data.datas
+  });
+  $content.html(html);
+  $content.find('.list-item').click(function() {
+    var id = $(this).attr('newsid');
+    var newsItem = _.find(data.datas, function(item) {
+      return item.id == id;
+    });
+    NewsUtil.openDetail(newsItem);
+    return false;
+  });
+  initPage(parseInt(data.page), parseInt(data.pagecount));
+});
