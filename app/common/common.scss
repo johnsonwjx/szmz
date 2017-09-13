@@ -17,14 +17,14 @@
 
   #common-sites {
     height: 66%;
-    padding: 40px 15px;
-    font-size: 12px;
+    padding: 30px 15px;
+    font-size: 13px;
 
     > a {
-      padding-bottom: 10px;
-      color: #FFF;
       float: left;
       width: 50%;
+      line-height: 30px;
+      color: #FFF;
     }
   }
 }
