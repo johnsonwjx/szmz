@@ -50,6 +50,19 @@ function getParameterByName(name, url) {
   return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
+function openWinCallback(win, callback, interval) {
+  interval = interval || 500;
+  var
+    timer,
+    checkWinClose = function() {
+      if (win.closed) {
+        clearInterval(timer);
+        callback && callback();
+      }
+    };
+  timer = setInterval(checkWinClose, interval);
+}
+
 module.exports = {
   rootpath: rootpath,
   errorHandle: errorHandle,
@@ -58,5 +71,6 @@ module.exports = {
   param: param,
   getJSON: getJSON,
   getJSONFail: getJSONFail,
-  getParameterByName: getParameterByName
+  getParameterByName: getParameterByName,
+  openWinCallback: openWinCallback
 };

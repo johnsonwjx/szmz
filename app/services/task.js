@@ -6,7 +6,9 @@ function getStyleWidthHeight(flowcode, taskid, taskType, wpid, customid) {
 }
 
 function getTasks(param, $emenent, templ) {
-  param = $.param(param);
+  if (typeof param === 'object') {
+    param = $.param(param);
+  }
   var url = Common.rootpath + 'loadMain.do?action=loadTaskByAjax&taskGpType=D&filter=&' + param;
   return Common.getJSON(url, $emenent).then(function(rawData) {
     var tasks = [];
@@ -37,14 +39,17 @@ function getTasks(param, $emenent, templ) {
         status = $item.attr('status'),
         fid = $item.attr('fid'),
         wtype = $item.attr('wtype');
-      openTask(id, status, fid, wtype, param.taskType);
+      openTask(id, status, fid, wtype, param.taskType, function() {
+        //关闭后重新获取数据
+        getTasks(param, $emenent, templ);
+      });
       return false;
     });
     return rawData;
   });
 }
 
-function openTask(id, st, fid, wtype, taskType) {
+function openTask(id, st, fid, wtype, taskType, callback) {
   var url = Common.rootpath + "flow.do?taskID=" + id + "&taskStatus=" + st + "&taskType=" + taskType + "&tfuncid=" + fid + "&wtype=" + wtype + "&action=load";
   var taskid = url.substring(url.indexOf("?taskID=") + 8);
   taskid = taskid.substring(0, taskid.indexOf("&"));
@@ -77,8 +82,12 @@ function openTask(id, st, fid, wtype, taskType) {
     return "width=" + wVal + ",height=" + hVal + ",left=" + leftVa + ",top=" + topVa;
   }).then(function(size) {
     //弹出窗体并告诉工作流不需要弹出窗口
-    var currentUserId = window.userInfo.userid;
-    window.open(url + "&openWin=F", taskid + currentUserId, size + ",toolbar=no,menubar=no,scrollbars=yes,resizable=yes,location=no,status=no");
+    var
+      currentUserId = window.userInfo.userid,
+      win = window.open(url + "&openWin=F", taskid + currentUserId, size + ",toolbar=no,menubar=no,scrollbars=yes,resizable=yes,location=no,status=no");
+    if (callback) {
+      Common.openWinCallback(win, callback);
+    }
   });
 }
 module.exports = {
