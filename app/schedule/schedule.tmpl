@@ -1,9 +1,20 @@
-{{#schedules}}
-<tr>
-  <td>{{time}}</td>
-  <td>{{event}}</td>
-  <td>
-    <a class="edit" href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-  </td>
-</tr>
-{{/schedules}}
+<table class="pure-table pure-table-bordered">
+  <thead>
+    <tr>
+      <th width="100"></th>
+      <th width=""></th>
+      <th width="40"></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#schedules}}
+    <tr>
+      <td>{{time}}</td>
+      <td>{{event}}</td>
+      <td>
+        <a class="edit" href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+      </td>
+    </tr>
+    {{/schedules}}
+  </tbody>
+</table>

@@ -3,7 +3,7 @@ require('@fengyuanchen/datepicker/dist/datepicker.min.js');
 require('@fengyuanchen/datepicker/dist/datepicker.css');
 var scheduleTmpl = require('./schedule.tmpl');
 var url = 'datas/schedules.json',
-  $content = $('.list-content tbody'),
+  $content = $('#schedule .list-content'),
   $dateInput = $('[name="schedule-time"]');
 
 $.fn.datepicker.languages['zh-CN'] = {
@@ -39,20 +39,25 @@ $('#schedule .action').click(function() {
 
 function getSchedule(date) {
   date = formatDate(date);
-  Common.getJSON(url + '?date=' + date, $content).then(function(data) {
-    data = $.map(data, function(item) {
-      item.event = date + ',  ' + item.event;
-      return item;
-    });
-    var html = scheduleTmpl.render({
-      schedules: data
-    });
-    $content.html(html);
-    $content.find('.edit').click(function() {
-      swal('开发中...');
-      return false;
-    });
 
+  Common.getJSON(url + '?date=' + date, $content).then(function(data) {
+    data = [];
+    if (_.isEmpty(data)) {
+      $content.html('');
+    } else {
+      data = $.map(data, function(item) {
+        item.event = date + ',  ' + item.event;
+        return item;
+      });
+      var html = scheduleTmpl.render({
+        schedules: data
+      });
+      $content.html(html);
+      $content.find('.edit').click(function() {
+        swal('开发中...');
+        return false;
+      });
+    }
   });
 }
 
