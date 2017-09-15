@@ -1,6 +1,6 @@
 require('purecss');
 require('font-awesome/scss/font-awesome.scss');
-require('sweetalert/dist/sweetalert.css');
+require('sweetalert2/dist/sweetalert2.css');
 require('./scss/app.scss');
 require('./scss/list.scss');
 require('./scss/pagination.scss');
