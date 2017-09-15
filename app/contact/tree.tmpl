@@ -1,7 +1,7 @@
 <ul class="pure-menu-list level1">
-  {{#nodes}}
+  {{#children}}
   <li class="pure-menu-item">
-    <span class="pure-menu-link">{{name}}{{#children.length}}<i class="oper fa fa-plus" aria-hidden="true"></i></span>{{/children.length}} {{> children}}
+    <span class="pure-menu-link">{{name}}{{#children.length}}<i class="oper fa fa-plus" aria-hidden="true"></i>{{/children.length}}</span> {{> children}}
   </li>
-  {{/nodes}}
+  {{/children}}
 </ul>

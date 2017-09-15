@@ -1,7 +1,7 @@
 <ul class="pure-menu-list">
   {{#children}}
-  <li class="pure-menu-item">
-    <a href="#" class="pure-menu-link"><i class="fa fa-{{gender}}" aria-hidden="true"></i>{{name}}</a>
+  <li class="pure-menu-item {{#personid}}person{{/personid}}">
+    <a href="#" class="pure-menu-link" {{#personid}} personid="{{personid}}" {{/personid}}>{{^personid}}<i class="oper fa fa-plus" aria-hidden="true"></i>{{/personid}} {{#personid}}<i class="fa fa-{{gender}}" aria-hidden="true"></i>{{name}}-{{telephonenumber}}{{/personid}}</a>
   </li>
   {{/children}}
 </ul>

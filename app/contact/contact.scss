@@ -3,9 +3,51 @@
 #contact {
   width: $col-right-width / 2 !important;
   height: 30%;
+  position: relative;
 
   #contract-search {
     width: 50%;
+  }
+
+  .tree {
+    position: absolute;
+    top: $list-header-height + 10px;
+    bottom: 0;
+    width: 100%;
+
+    .pure-menu-link {
+      color: #000;
+    }
+
+    .pure-menu-item {
+      text-align: center;
+
+      span {
+        font-size: 12px;
+        border: 1px solid $border-color;
+      }
+
+      .oper {
+        float: left;
+      }
+    }
+
+    .person {
+      text-align: left;
+
+      .select {
+        background: $active-color !important;
+      }
+
+      .pure-menu-link {
+        font-size: 11px;
+        padding-left: 5px;
+
+        i {
+          margin-right: 3px;
+        }
+      }
+    }
   }
 
   .icon-label {
@@ -18,5 +60,33 @@
 
   .fa-female {
     color: red;
+  }
+}
+
+.contact-info {
+  padding: 0 30px;
+
+  * {
+    padding: 0;
+    margin: 0;
+  }
+
+  .group {
+    .field-label {
+      float: left;
+      width: 100px;
+      text-align: right;
+      padding-right: 30px;
+    }
+
+    .field-content {
+      float: left;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
   }
 }
