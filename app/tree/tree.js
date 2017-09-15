@@ -10,4 +10,4 @@ function nodeClick() {
 }
 module.exports = {
   nodeClick: nodeClick
-}
+};

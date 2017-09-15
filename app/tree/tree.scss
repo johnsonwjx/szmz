@@ -1,11 +1,10 @@
 @import "../scss/vars";
 
 .tree {
-  height: 100%;
   overflow: auto;
   @mixin level($level) {
     .pure-menu-link {
-      padding-left: $level * 20px;
+      padding-left: $level * 10px;
     }
   }
 
