@@ -73,7 +73,7 @@ module.exports = {
     new ExtractTextPlugin("[name].css"),
     new webpack.ProvidePlugin({
       Common: 'common',
-      swal: 'sweetalert'
+      swal: 'sweetalert2'
     })
   ]
 };
