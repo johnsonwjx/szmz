@@ -17,6 +17,11 @@ html {
 
 a {
   text-decoration: none;
+
+  &:focus,
+  &:hover {
+    color: $color;
+  }
 }
 
 ul {
@@ -89,6 +94,11 @@ ul {
     color: #FFF;
     text-decoration: none;
     font-weight: lighter;
+
+    &:focus,
+    &:hover {
+      color: $color;
+    }
   }
 
   h4 {
@@ -108,10 +118,6 @@ ul {
   overflow: hidden;
 
   .list-item {
-    &:hover {
-      color: $color;
-    }
-
     .content {
       display: inline-block;
       overflow: hidden;

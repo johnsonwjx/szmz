@@ -1,6 +1,8 @@
 require('./navbar.scss');
 $('#password-change').click(function() {
-  window.passwordUtility.openSetPwdDialog();
+  window.passwordUtility.openSetPwdDialog({
+    cancelable:true
+  });
   return false;
 });
 

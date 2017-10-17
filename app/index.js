@@ -1,3 +1,4 @@
+require("babel-polyfill");
 require('purecss');
 require('font-awesome/scss/font-awesome.scss');
 require('sweetalert2/dist/sweetalert2.css');

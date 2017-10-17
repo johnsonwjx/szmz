@@ -22,6 +22,11 @@ $message-title-width: 60px;
 
     .more {
       color: $active-color;
+
+      &:focus,
+      &:hover {
+        color: $color;
+      }
     }
 
     .list-content {
