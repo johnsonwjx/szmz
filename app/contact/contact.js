@@ -5,13 +5,14 @@ var childrenTmpl = require('./children.tmpl');
 var infoTmpl = require('./info.tmpl');
 var Search = require('../search/search');
 var url = 'business.do?action=loadContacts',
+  // var url = 'datas/contact.json',
   $content = $('#contact .tree'),
   persons;
 
 function showInfo(data) {
   var html = infoTmpl.render(data);
   swal({
-    title: '<i class="fa fa-user" aria-hidden="true"></i>人员信息',
+    title: '<i class="fa fa-user" aria-hidden="true"></i>&nbsp;人员信息',
     html: $(html),
     showCloseButton: true
   });

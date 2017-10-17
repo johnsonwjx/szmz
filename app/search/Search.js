@@ -2,7 +2,7 @@ require('./search.scss');
 var _ = require('lodash');
 var searchTmpl = require('./search.tmpl');
 var tmpl = '<ul class="searchList"></ul>';
-var lineHeight = 20;
+var lineHeight = 21;
 var defaults = {
   $input: null,
   datas: [],
@@ -38,7 +38,7 @@ function Search(props) {
   });
   this.$searchList.mouseleave(function() {
     me.inSearchListFlag = false;
-    // me.$input.focus();
+    me.$input.focus();
   });
   this.$input.click(function() {
     me.search();
@@ -52,7 +52,7 @@ function Search(props) {
   this.$input.keydown(function(event) {
     me.inputKeydown(event);
   });
-  this.$input.keyup(function(event) {
+  this.$input.bind("input", function(event) {
     me.inputKeyup(event);
   });
 }
@@ -120,6 +120,7 @@ Search.prototype.search = function() {
   }
   this.calledFlag = false;
   this.actionFlag = true;
+
   try {
     var text = this.$input.val().trim();
     this.timer = null;
@@ -154,7 +155,7 @@ Search.prototype.search = function() {
     });
     this.$searchList.html(html).find('li').eq(0).addClass('select');
     this.$searchList.css({
-      height: this.result.length * lineHeight
+      height: this.result.length * lineHeight + 10
     }).show();
     var me = this;
     var callbackFun = function(event) {
