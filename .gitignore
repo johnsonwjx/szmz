@@ -4,5 +4,7 @@ node_modules
 dist
 
 .idea
-
 .vscode
+*.log
+
+*-lock.json

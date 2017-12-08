@@ -9,25 +9,7 @@
 </head>
 
 <body>
-  <script type="text/template" id="template">
-    <ul class="parent">
-      {{#menu}}
-      <li>
-        {{item}} {{>recurse}}
-
-      </li>
-      {{/menu}}
-    </ul>
-  </script>
-  <script type="text/template" id="recurse">
-    <ul class="submenu">
-      {{#menu}}
-      <li>
-        {{item}} {{>recurse}}
-      </li>
-      {{/menu}}
-    </ul>
-  </script>
+  <input type="text" id="search">
 </body>
 
 </html>
