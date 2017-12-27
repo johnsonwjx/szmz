@@ -9,6 +9,7 @@ var CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
   entry: {
     "index": path.join(src, '/index.js'),
+    "main": path.join(src, '/main.js'),
     "list": path.join(src, '/list.js'),
     "detail": path.join(src, '/detail.js')
   },
@@ -54,21 +55,24 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       chunks: ['index'],
-      title: '深圳美芝',
       inject: false,
       template: src + '/index.html',
       filename: dist + '/index.html'
     }),
     new HtmlWebpackPlugin({
+      chunks: ['main'],
+      inject: false,
+      template: src + '/main.html',
+      filename: dist + '/main.html'
+    }),
+    new HtmlWebpackPlugin({
       chunks: ['list'],
-      title: '列表',
       inject: false,
       template: src + '/list.html',
       filename: dist + '/list.html'
     }),
     new HtmlWebpackPlugin({
       chunks: ['detail'],
-      title: '详情',
       inject: false,
       template: src + '/detail.html',
       filename: dist + '/detail.html'

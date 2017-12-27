@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="./main.css">
+<div id="col-center" class="col">
+  <%= require('html-loader!./news/news.html')%>
+    <%= require('html-loader!./task/task.html')%>
+</div>
+<div id="col-left" class="col">
+  <div id="weather" class="box">
+  </div>
+  <%= require('html-loader!./message/message.html')%>
+    <div id="attendance-person" class="box box-title">
+      <a href="#">
+        <i class="fa fa-hand-o-up fa-3x" aria-hidden="true"></i>
+        <h4>个人考勤</h4>
+      </a>
+    </div>
+    <div id="attendance-company" class="box box-title">
+      <a href="#">
+        <i class="fa fa-calendar-check-o fa-3x" aria-hidden="true"></i>
+        <h4>公司考勤</h4>
+      </a>
+    </div>
+</div>
+<div id="col-right" class="col">
+  <%= require('html-loader!./schedule/schedule.html')%>
+    <%= require('html-loader!./finance/finance.html')%>
+      <%= require('html-loader!./common/common.html')%>
+        <%= require('html-loader!./notify/notify.html')%>
+          <%= require('html-loader!./contact/contact.html')%>
+</div>
+<script src="./main.js" charset="utf-8"></script>

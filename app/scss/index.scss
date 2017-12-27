@@ -1,83 +1,15 @@
 @import "vars";
+.min-size {
+  min-width: $min-width;
+  min-height: $min-height;
+}
 
-#content {
-  height: 100%;
-  margin-top: - $navbar-height;
-  padding-top: $navbar-height;
-  font-size: 13px;
-  font-weight: lighter;
-  padding-left: $col-left-width;
-  padding-right: $col-right-width;
-
-  > div {
-    float: left;
-  }
-
-  &:after {
-    content: '';
-    clear: both;
-  }
-
-  .col {
-    float: left;
-    height: 100%;
-
-    &:after {
-      content: '';
-      clear: both;
-    }
-  }
-
-  .more {
-    float: right;
-
-    &:after {
-      content: '';
-      clear: both;
-    }
-  }
-
-  #col-left {
-    position: relative;
-    left: -$col-left-width;
-    width: $col-left-width;
-    margin-left: -100%;
-
-    #weather {
-      background-color: $wether-bg;
-      height: 30%;
-
-      img {
-        width: 100%;
-        height: 100%;
-      }
-    }
-
-    #attendance-company {
-      width: $col-left-width / 2;
-      height: 30%;
-      background-color: $attendance-company-bg;
-    }
-
-    #attendance-person {
-      width: $col-left-width / 2;
-      height: 30%;
-      background-color: $attendance-person-bg;
-    }
-  }
-
-  #col-center {
-    width: 100%;
-
-    #schedule {
-      height: 30%;
-    }
-  }
-
-  #col-right {
-    position: relative;
-    right: - $col-right-width;
-    width: $col-right-width;
-    margin-left: - $col-right-width;
+#back-forward {
+  color: #000;
+  margin-right: 10px;
+  &:hover,
+  &:active,
+  &:focus {
+    color: $color!important;
   }
 }

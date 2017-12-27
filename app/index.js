@@ -8,27 +8,28 @@ require('jquery');
 require('./tab/tab.js');
 require('./sidebar/sidebar.js');
 require('./navbar/navbar.js');
-var News = require('./news/news.js');
-var Message = require('./message/message.js');
-require('./finance/finance.js');
-require('./contact/contact.js');
-require('./schedule/schedule.js');
-require('./task/task.js');
-require('./weather/weather.js');
-require('./common/common.js');
-require('./notify/notify.js');
-var NewsUtil = require('./services/news.js');
-var $content = $([News.selector, Message.selector].join(','));
-Common.getJSON('business.do?action=loadAllNews', $content).then(function(data) {
-  var news = _.chain(data).values().flatten().value();
-  News.render(data);
-  Message.render(data);
-  $content.find('.list-item').click(function() {
-    var id = $(this).attr('newsid');
-    var newsItem = _.find(news, function(item) {
-      return item.id == id;
+window.pathObj = {
+  pathArr: [],
+  loadContent: function (url, param) {
+    if (url === 'main.html') {
+      this.pathArr = [];
+    }
+    this.pathArr.push({
+      url: url,
+      param: param
     });
-    NewsUtil.openDetail(newsItem);
-    return false;
-  });
-});
+    $("#content").load(url);
+  },
+  backForward: function () {
+    if (this.pathArr.length < 2) {
+      return;
+    }
+    this.pathArr.pop();
+    var pathItem = this.pathArr.pop();
+    this.loadContent(pathItem.url, pathItem.param);
+  },
+  getParam: function () {
+    return this.pathArr[this.pathArr.length - 1].param;
+  }
+}
+window.pathObj.loadContent('main.html');

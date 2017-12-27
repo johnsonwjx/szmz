@@ -15,7 +15,7 @@
     border-bottom: 1px solid $border-color;
 
     a:hover {
-      color: #CCC;
+      color: #CCC!important;
     }
   }
 
@@ -32,7 +32,7 @@
 
       &:focus,
       &:hover {
-        color: #CCC;
+        color: #CCC!important;
       }
     }
   }

@@ -1,12 +1,15 @@
 require('./navbar.scss');
-$('#password-change').click(function() {
+$('#home').click(function () {
+  window.pathObj.loadContent('main.html', null);
+});
+$('#password-change').click(function () {
   window.passwordUtility.openSetPwdDialog({
-    cancelable:true
+    cancelable: true
   });
   return false;
 });
 
-$('#help').click(function() {
+$('#help').click(function () {
   swal('开发中...');
   return false;
 });

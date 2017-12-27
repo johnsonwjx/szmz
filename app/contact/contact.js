@@ -23,10 +23,7 @@ var search = Search({
     var $select = $content.find('[personid="' + data.personid + '"]');
     $content.find('.expand').children('.pure-menu-link').click();
     $select.parents('.pure-menu-item').children('.pure-menu-link').click();
-    $content.find('.select').removeClass('select');
-    $select.addClass('select');
     $content.scrollTop($select.parents('.level1').position().top);
-    showInfo(data);
   }
 });
 var flatData = function(data) {

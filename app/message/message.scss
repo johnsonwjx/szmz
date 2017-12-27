@@ -25,7 +25,7 @@ $message-title-width: 60px;
 
       &:focus,
       &:hover {
-        color: $color;
+        color: $color!important;
       }
     }
 

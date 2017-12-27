@@ -25,41 +25,38 @@ function Search(props) {
   }
   var
     style = _.defaults(this.style, {
-      left: this.$input.offset().left,
-      top: this.$input.offset().top + this.$input.outerHeight(),
-      width: this.$input.width(),
-
+      width: this.$input.width()
     }),
 
     me = this;
   this.$searchList = $(tmpl).css(style).appendTo('body');
-  this.$searchList.mouseenter(function() {
+  this.$searchList.mouseenter(function () {
     me.inSearchListFlag = true;
   });
-  this.$searchList.mouseleave(function() {
+  this.$searchList.mouseleave(function () {
     me.inSearchListFlag = false;
     me.$input.focus();
   });
-  this.$input.click(function() {
+  this.$input.click(function () {
     me.search();
   });
-  this.$input.blur(function() {
+  this.$input.blur(function () {
     if (me.inSearchListFlag) {
       return;
     }
     me.$searchList.hide();
   });
-  this.$input.keydown(function(event) {
+  this.$input.keydown(function (event) {
     me.inputKeydown(event);
   });
-  this.$input.bind("input", function(event) {
+  this.$input.bind("input", function (event) {
     me.inputKeyup(event);
   });
 }
-Search.prototype.setDatas = function(datas) {
+Search.prototype.setDatas = function (datas) {
   this.datas = datas;
 };
-Search.prototype.inputKeydown = function(event) {
+Search.prototype.inputKeydown = function (event) {
   //查询结果显示时候 去掉input的上下方向键事件,
   if (this.$searchList.is(':visible')) {
     if (event.keyCode === 38 || event.keyCode === 40) {
@@ -85,13 +82,15 @@ Search.prototype.inputKeydown = function(event) {
         this.$searchList.scrollTop($select.position().top);
         break;
       case 13:
-        $select.children('a').click();
+        setTimeout(function () {
+          $select.children('a').click();
+        }, 100);
         break;
     }
     $select.focus();
   }
 };
-Search.prototype.inputKeyup = function(event) {
+Search.prototype.inputKeyup = function (event) {
   if (this.actionFlag) {
     return;
   }
@@ -109,12 +108,12 @@ Search.prototype.inputKeyup = function(event) {
     this.timer = null;
   }
   var me = this;
-  var timer = setTimeout(function() {
+  var timer = setTimeout(function () {
     me.search();
   }, this.timeout);
   this.timer = timer;
 };
-Search.prototype.search = function() {
+Search.prototype.search = function () {
   if (this.actionFlag) {
     return;
   }
@@ -131,13 +130,16 @@ Search.prototype.search = function() {
     }
     if (text == this.text) {
       if (this.result.length > 0) {
-        this.$searchList.show();
+        this.$searchList.css({
+          left: this.$input.offset().left,
+          top: this.$input.offset().top + this.$input.outerHeight(),
+        }).show();
       }
       return;
     }
     this.text = text;
     var field = this.field;
-    this.result = _.filter(this.datas, function(item) {
+    this.result = _.filter(this.datas, function (item) {
       return item[field].indexOf(text) !== -1;
     });
     if (!this.result.length) {
@@ -147,7 +149,7 @@ Search.prototype.search = function() {
     if (this.result.length > this.resultSize) {
       this.result = _.slice(this.result, 0, this.resultSize);
     }
-    _.forEach(this.result, function(item) {
+    _.forEach(this.result, function (item) {
       item.text = item[field].replace(new RegExp(text, 'g'), '<span class="hit">' + text + '</span>');
     });
     var html = searchTmpl.render({
@@ -155,10 +157,12 @@ Search.prototype.search = function() {
     });
     this.$searchList.html(html).find('li').eq(0).addClass('select');
     this.$searchList.css({
+      left: this.$input.offset().left,
+      top: this.$input.offset().top + this.$input.outerHeight(),
       height: this.result.length * lineHeight + 10
     }).show();
     var me = this;
-    var callbackFun = function(event) {
+    var callbackFun = function (event) {
       me.$searchList.find('.select').removeClass('select');
       var $select = $(event.target).parent('li').addClass('select');
       if (me.callback) {
@@ -175,6 +179,6 @@ Search.prototype.search = function() {
 
 };
 
-module.exports = function(props) {
+module.exports = function (props) {
   return new Search(props || {});
 };

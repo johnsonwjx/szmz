@@ -19,7 +19,7 @@
     margin: auto;
 
     &:hover {
-      color: $navbar-bg;
+      color: $navbar-bg!important;
     }
   }
 
@@ -30,8 +30,8 @@
   .pure-menu-link {
     &:focus,
     &:hover {
-      background: none;
-      color: $color;
+      background: none!important;
+      color: $color!important;
     }
   }
 
@@ -39,7 +39,6 @@
   .pure-menu-link {
     font-weight: lighter;
     color: #F5F5F5;
-    height: $navbar-height;
     i{
       margin-right: 3px;
     }

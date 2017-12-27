@@ -1,30 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>
-    <%= htmlWebpackPlugin.options.title %>
-  </title>
-  <link rel="stylesheet" href="./detail.css">
-</head>
-
-<body>
-  <%= require('html-loader!./sidebar/sidebar.html')%>
-    <div id="container">
-      <%= require('html-loader!./navbar/navbar.html')%>
-        <div id="content">
-          <iframe id="detail" width="100%"></iframe>
-          <p id="issue_user"></p>
-          <fieldset id="affix">
-            <legend>附件</legend>
-            <ol>
-            </ol>
-          </fieldset>
-        </div>
-    </div>
-    <script src="./detail.js" charset="utf-8"></script>
-    <%= require('html-loader!./password/password.html')%>
-</body>
+<link rel="stylesheet" href="./detail.css">
+<a id="back-forward" href="javascript:;" class="pure-menu-link">
+  <i class="fa fa-backward" aria-hidden="true"></i>返回</a>
+</li>
+<iframe id="detail" width="100%"></iframe>
+<p id="issue_user"></p>
+<fieldset id="affix">
+  <legend>附件</legend>
+  <ol>
+  </ol>
+</fieldset>
+<script src="./detail.js" charset="utf-8"></script>

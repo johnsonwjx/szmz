@@ -20,7 +20,7 @@ a {
 
   &:focus,
   &:hover {
-    color: $color;
+    color: $color!important;
   }
 }
 
@@ -32,8 +32,6 @@ ul {
   position: absolute;
   left: $sidebar-width;
   right: 0;
-  min-width: $min-width;
-  min-height: $min-height;
   height: 100%;
   overflow: hidden;
 }
@@ -49,8 +47,8 @@ ul {
 .pure-menu-link {
   &:focus,
   &:hover {
-    background: none;
-    color: #FFF;
+    background: none!important;
+    color: #FFF!important;
   }
 }
 
@@ -74,7 +72,7 @@ ul {
 
       &:focus,
       &:hover {
-        color: $active-color;
+        color: $active-color!important;
       }
     }
   }
@@ -97,7 +95,7 @@ ul {
 
     &:focus,
     &:hover {
-      color: $color;
+      color: $color!important;
     }
   }
 

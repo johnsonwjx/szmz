@@ -1,5 +1,4 @@
 @import "vars.scss";
-
 #container {
   overflow: auto;
 }
@@ -12,15 +11,12 @@
   width: 100%;
   padding: 0 10px;
   background: #FFF;
-
   #issue_user {
     text-align: right;
   }
-
   #affix {
     padding: 5px 30px;
     border: solid 1px #ccc;
-
     li {
       list-style-position: outside;
     }

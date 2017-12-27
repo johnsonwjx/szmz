@@ -1,13 +1,5 @@
-require('purecss');
-require('font-awesome/scss/font-awesome.scss');
-require('sweetalert2/dist/sweetalert2.css');
-require('./scss/app.scss');
 require('./scss/list.scss');
 require('./scss/pagination.scss');
-require('jquery');
-require('./tab/tab.js');
-require('./sidebar/sidebar.js');
-require('./navbar/navbar.js');
 require('jqPaginator/dist/1.2.0/jqPaginator.min.js');
 var messageTmpl = require('message/message.tmpl');
 var NewsUtil = require('./services/news.js');
@@ -23,7 +15,7 @@ function initPage(currentPage, totalPages) {
     next: '<li class="next"><a href="javascript:void(0);">下一页<i class="fa fa-angle-right"><\/i><\/a><\/li>',
     last: '<li class="last"><a href="javascript:void(0);">末页<\/a><\/li>',
     page: '<li class="page"><a href="javascript:void(0);">{{page}}<\/a><\/li>',
-    onPageChange: function(num, type) {
+    onPageChange: function (num, type) {
       if (type === 'change') {
         getData && getData(num);
       }
@@ -31,12 +23,11 @@ function initPage(currentPage, totalPages) {
   });
 }
 
-$('#sidebar iframe').attr('src', Common.rootpath + 'desktop2.1/jsp/mywork.jsp');
-var type = Common.param('type'),
+var type = window.pathObj.getParam(),
   $content = $('.list-content'),
   $header = $('.list-header h4 em'),
   title = '列表',
-  getData = function(page) {
+  getData = function (page) {
     return Common.getJSON('business.do?action=loadNewsByPage&type=' + type + '&page=' + page, $content);
   };
 switch (type) {
@@ -55,20 +46,22 @@ switch (type) {
   default:
     break;
 }
-document.title = title;
 $header.html(title);
-getData(1).then(function(data) {
+getData(1).then(function (data) {
   var html = messageTmpl.render({
     message: data.datas
   });
   $content.html(html);
-  $content.find('.list-item').click(function() {
+  $content.find('.list-item').click(function () {
     var id = $(this).attr('newsid');
-    var newsItem = _.find(data.datas, function(item) {
+    var newsItem = _.find(data.datas, function (item) {
       return item.id == id;
     });
     NewsUtil.openDetail(newsItem);
     return false;
   });
   initPage(parseInt(data.page), parseInt(data.pagecount));
+});
+$('#back-forward').click(function () {
+  window.pathObj.backForward()
 });
