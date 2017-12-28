@@ -5,6 +5,19 @@ require('sweetalert2/dist/sweetalert2.css');
 require('./scss/app.scss');
 require('./scss/index.scss');
 require('jquery');
+$.ajaxSetup({
+  async: false
+});
+$.getJSON('business.do?action=getUserInfo', function (userInfo) {
+  debugger;
+  $('#welcome h4').html('欢迎您:' + userInfo.username + ' 角色:' + userInfo.rolename);
+  window.userInfo = userInfo;
+}).fail(function () {
+  Common.reLogin();
+});
+$.ajaxSetup({
+  async: true
+});
 require('./tab/tab.js');
 require('./sidebar/sidebar.js');
 require('./navbar/navbar.js');

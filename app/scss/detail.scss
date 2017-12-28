@@ -3,6 +3,11 @@
   overflow: auto;
 }
 
+.min-size {
+  min-width: 200px;
+  min-height: 200px;
+}
+
 #content {
   overflow: auto;
   position: absolute;
