@@ -9,7 +9,6 @@ $.ajaxSetup({
   async: false
 });
 $.getJSON('business.do?action=getUserInfo', function (userInfo) {
-  debugger;
   $('#welcome h4').html('欢迎您:' + userInfo.username + ' 角色:' + userInfo.rolename);
   window.userInfo = userInfo;
 }).fail(function () {

@@ -1,6 +1,5 @@
 require('./sidebar.scss');
-
-$('#sidebar iframe').on('load', function() {
+$('#sidebar iframe').on('load', function () {
   $(this).contents().find('#tree').css({
     position: 'absolute',
     top: 0,

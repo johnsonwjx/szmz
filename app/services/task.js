@@ -10,11 +10,11 @@ function getTasks(param, $emenent, templ) {
     param = $.param(param);
   }
   var url = Common.rootpath + 'loadMain.do?action=loadTaskByAjax&taskGpType=D&filter=&' + param;
-  return Common.getJSON(url, $emenent).then(function(rawData) {
+  return Common.getJSON(url, $emenent).then(function (rawData) {
     var tasks = [];
     if (rawData.titleinfo.length > 0) {
       var items = rawData.data[rawData.titleinfo[0][0]];
-      tasks = $.map(items, function(itemArr) {
+      tasks = $.map(items, function (itemArr) {
         var timeArr = itemArr[3].split(' ');
         return {
           id: itemArr[0],
@@ -33,19 +33,23 @@ function getTasks(param, $emenent, templ) {
       data: tasks
     });
     $emenent.html(html);
-    $emenent.find('.list-item').click(function() {
+    $emenent.find('.list-item').click(function () {
       var $item = $(this),
         id = $item.attr('taskid'),
         status = $item.attr('status'),
         fid = $item.attr('fid'),
         wtype = $item.attr('wtype');
-      openTask(id, status, fid, wtype, param.taskType, function() {
+      openTask(id, status, fid, wtype, param.taskType, function () {
         //关闭后重新获取数据
         getTasks(param, $emenent, templ);
       });
       return false;
     });
     return rawData;
+  }).always(function (response) {
+    if (!$.isPlainObject(response) && !response.responseText) {
+      $emenent.html('');
+    }
   });
 }
 
@@ -55,7 +59,7 @@ function openTask(id, st, fid, wtype, taskType, callback) {
   taskid = taskid.substring(0, taskid.indexOf("&"));
   var taskt = url.substring(url.indexOf("&taskType=") + 10);
   taskt = taskt.substring(0, taskt.indexOf("&"));
-  getStyleWidthHeight("", taskid, taskt, "").then(function(size) {
+  getStyleWidthHeight("", taskid, taskt, "").then(function (size) {
     //取出宽度和高度，然后调整为居中
     var wVal, hVal;
     if (size && size.indexOf('width=') !== -1) {
@@ -80,7 +84,7 @@ function openTask(id, st, fid, wtype, taskType, callback) {
       topVa = 0;
     }
     return "width=" + wVal + ",height=" + hVal + ",left=" + leftVa + ",top=" + topVa;
-  }).then(function(size) {
+  }).then(function (size) {
     //弹出窗体并告诉工作流不需要弹出窗口
     var
       currentUserId = window.userInfo.userid,
