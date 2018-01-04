@@ -27,3 +27,20 @@
     }
   }
 }
+
+#detail {
+  width: 100%;
+  border: none;
+}
+
+#to-top {
+  display: none;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  color: #8b8b8c;
+  text-align: center;
+  >i {
+    font-size: 40px;
+  }
+}
