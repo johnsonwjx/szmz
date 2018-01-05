@@ -4,7 +4,8 @@ require('font-awesome/scss/font-awesome.scss');
 require('sweetalert2/dist/sweetalert2.css');
 require('./scss/app.scss');
 require('./scss/index.scss');
-require('jquery');
+var $ = require('jquery');
+var _ = require('lodash');
 $.ajaxSetup({
   async: false
 });
@@ -20,28 +21,55 @@ $.ajaxSetup({
 require('./tab/tab.js');
 require('./sidebar/sidebar.js');
 require('./navbar/navbar.js');
+
 window.pathObj = {
   pathArr: [],
   loadContent: function (url, param) {
+    var pathArr = this.pathArr;
     if (url === 'main.html') {
-      this.pathArr = [];
+      pathArr = [];
+    } else {
+      pathArr.push({
+        url: url,
+        param: param
+      });
     }
-    this.pathArr.push({
-      url: url,
-      param: param
+    this.pathArr = pathArr;
+    $("#content").load(url, function () {
+      $('.oper').hide();
+      if (pathArr.length > 0) {
+        $('#back-forward').show();
+      }
     });
-    $("#content").load(url);
   },
   backForward: function () {
-    if (this.pathArr.length < 2) {
-      return;
+    if (this.pathArr.length <= 1) {
+      this.loadContent('main.html');
+    } else {
+      this.pathArr.pop();
+      var pathItem = this.pathArr.pop();
+      this.loadContent(pathItem.url, pathItem.param);
     }
-    this.pathArr.pop();
-    var pathItem = this.pathArr.pop();
-    this.loadContent(pathItem.url, pathItem.param);
   },
   getParam: function () {
     return this.pathArr[this.pathArr.length - 1].param;
   }
 }
-window.pathObj.loadContent('main.html');
+$(function () {
+  $('#to-top').click(function () {
+    $('#content').animate({
+      scrollTop: 0
+    }, 1000);
+  });
+  $('#content').scroll(_.debounce(function () {
+    if (this.scrollTop > 50) {
+      $('#to-top').fadeIn(250);
+    } else {
+      $('#to-top').fadeOut(250);
+    }
+  }, 250));
+  $('#back-forward').click(function () {
+    window.pathObj.backForward()
+  });
+  window.pathObj.loadContent('main.html');
+});

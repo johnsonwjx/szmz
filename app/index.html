@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,4 +18,13 @@
     </div>
     <script src="./index.js" charset="utf-8"></script>
     <%= require('html-loader!./password/password.html')%>
+      <a id="to-top" class="oper" href="javascript:;">
+        <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+        <br/> 返回顶部
+      </a>
+
+      <a id="back-forward" class="oper" href="javascript:;">
+        <i class="fa fa-backward" aria-hidden="true"></i>
+        <br/>后退
+      </a>
 </body>

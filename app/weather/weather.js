@@ -3,7 +3,6 @@ require('./css/weather-icons.css');
 
 var Chart = require('chart.js');
 var moment = require('moment');
-var _ = require('lodash');
 
 var weatherTpl = require('./weather.tmpl');
 

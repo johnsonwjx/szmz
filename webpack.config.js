@@ -33,6 +33,9 @@ module.exports = {
       test: require.resolve("jquery"),
       loader: "expose-loader?$!expose-loader?jQuery"
     }, {
+      test: require.resolve("lodash"),
+      loader: "expose-loader?_"
+    }, {
       test: /\.css$/,
       loader: ExtractTextPlugin.extract("style-loader", "css-loader")
     }, {

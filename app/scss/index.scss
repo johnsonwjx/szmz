@@ -1,10 +1,22 @@
 @import "vars";
-#back-forward {
-  color: #000;
-  margin-right: 10px;
-  &:hover,
-  &:active,
-  &:focus {
-    color: $color!important;
+.oper {
+  z-index: 999;
+  display: none;
+  position: fixed;
+  right: 20px;
+  width: 44px;
+  font-size: 10px;
+  color: #8b8b8c;
+  text-align: center;
+  >i {
+    font-size: 40px;
   }
+}
+
+#to-top {
+  bottom: 100px;
+}
+
+#back-forward {
+  bottom: 30px;
 }

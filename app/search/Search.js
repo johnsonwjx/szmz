@@ -1,5 +1,4 @@
 require('./search.scss');
-var _ = require('lodash');
 var searchTmpl = require('./search.tmpl');
 var tmpl = '<ul class="searchList"></ul>';
 var lineHeight = 21;

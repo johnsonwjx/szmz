@@ -11,25 +11,14 @@ if (issue_username) {
 var issue_date = param.issue_date;
 $('#issue_user').html('（发布人 ：' + issue_username + '&nbsp;&nbsp;' + issue_date + '）');
 
-
-$('#content').scroll(_.debounce(function () {
-  if (this.scrollTop > 100) {
-    $('#to-top').fadeIn(250);
-  } else {
-    $('#to-top').fadeOut(250);
+function setFrameHeight() {
+  var $frame = $('#detail');
+  if($frame.length<1){
+    $(this).off('resize');
+    return;
   }
-}, 250));
-
-$('#to-top').click(function () {
-  $('#content').animate({
-    scrollTop: 0
-  }, 1000);
-});
-
-
-$('#detail').on('load', function () {
   var height = 0;
-  var $children = $(this.contentWindow.document.body).children();
+  var $children = $($frame.get(0).contentWindow.document.body).children();
   var imgMode = true;
   $children.each(function (index, item) {
     if (item.nodeName !== "IMG") {
@@ -42,14 +31,20 @@ $('#detail').on('load', function () {
   } else if ($children.get(0).nodeName === "OBJECT") {
     height = 820;
   } else {
-    height = this.contentWindow.document.body.offsetHeight + 100;
+    height = $frame.get(0).contentWindow.document.body.offsetHeight + 100;
   }
-  this.style.height = height + 'px';
+  $frame.css('height', height)
+}
+
+
+$('#detail').on('load', function () {
+  $(this.contentDocument.body).find('p[align="center"]').css('text-align', 'center');
+  setFrameHeight();
+  $(window).on('resize', _.debounce(setFrameHeight, 250));
 });
 
 var fileUrl = Common.rootpath + '/common/updownfile/jsp/updownfile.do?action=ConvertDocToHtmlandDownFile&downWay=1&forceHtml=1&fileId=' + file_id;
 $('#detail').attr('src', fileUrl);
-
 
 if (affix_fileid) {
   $.getJSON('business.do?action=getFileName&affix_fileid=' + affix_fileid).then(function (data) {
@@ -68,6 +63,3 @@ if (affix_fileid) {
 } else {
   $('#affix').hide();
 }
-$('#back-forward').click(function () {
-  window.pathObj.backForward()
-});

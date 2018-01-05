@@ -3,8 +3,6 @@ require('./scss/pagination.scss');
 require('jqPaginator/dist/1.2.0/jqPaginator.min.js');
 var messageTmpl = require('message/message.tmpl');
 var NewsUtil = require('./services/news.js');
-var _ = require('lodash');
-
 function initPage(currentPage, totalPages) {
   $('#pagination').jqPaginator({
     totalPages: totalPages,
@@ -61,7 +59,4 @@ getData(1).then(function (data) {
     return false;
   });
   initPage(parseInt(data.page), parseInt(data.pagecount));
-});
-$('#back-forward').click(function () {
-  window.pathObj.backForward()
 });
