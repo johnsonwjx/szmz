@@ -35,7 +35,7 @@ function getJSONFail(response, $content) {
 
 function getJSON(url, $content) {
   $content.html(status.loadding);
-  return $.getJSON(url).fail(function(response) {
+  return $.getJSON(url+'&'+new Date().getTime()).fail(function(response) {
     getJSONFail(response, $content);
   });
 }

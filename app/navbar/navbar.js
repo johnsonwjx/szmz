@@ -1,6 +1,8 @@
 require('./navbar.scss');
 $('#home').click(function () {
-  window.pathObj.loadContent('main.html', null);
+  window.pathObj.loadContent({
+    url: 'main.html'
+  });
 });
 $('#password-change').click(function () {
   window.passwordUtility.openSetPwdDialog({

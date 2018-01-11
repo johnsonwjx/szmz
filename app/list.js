@@ -3,6 +3,7 @@ require('./scss/pagination.scss');
 require('jqPaginator/dist/1.2.0/jqPaginator.min.js');
 var messageTmpl = require('message/message.tmpl');
 var NewsUtil = require('./services/news.js');
+
 function initPage(currentPage, totalPages) {
   $('#pagination').jqPaginator({
     totalPages: totalPages,
@@ -21,7 +22,7 @@ function initPage(currentPage, totalPages) {
   });
 }
 
-var type = window.pathObj.getParam(),
+var type = window.pathObj.getParam().type,
   $content = $('.list-content'),
   $header = $('.list-header h4 em'),
   title = '列表',

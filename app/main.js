@@ -25,6 +25,9 @@ Common.getJSON('business.do?action=loadAllNews', $content).then(function (data) 
 });
 
 $('#content  .more').click(function () {
-  window.pathObj.loadContent('list.html', $(this).attr('news-type'));
+  window.pathObj.loadContent({
+    url: 'list.html',
+    type: $(this).attr('news-type')
+  });
   return false;
 });

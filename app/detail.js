@@ -13,7 +13,7 @@ $('#issue_user').html('（发布人 ：' + issue_username + '&nbsp;&nbsp;' + iss
 
 function setFrameHeight() {
   var $frame = $('#detail');
-  if($frame.length<1){
+  if ($frame.length < 1) {
     $(this).off('resize');
     return;
   }
@@ -27,7 +27,7 @@ function setFrameHeight() {
     }
   });
   if (imgMode) {
-    height = 1414 * $children.length;
+    height = 1414 * $children.length + 50;
   } else if ($children.get(0).nodeName === "OBJECT") {
     height = 820;
   } else {
@@ -47,7 +47,7 @@ var fileUrl = Common.rootpath + '/common/updownfile/jsp/updownfile.do?action=Con
 $('#detail').attr('src', fileUrl);
 
 if (affix_fileid) {
-  $.getJSON('business.do?action=getFileName&affix_fileid=' + affix_fileid).then(function (data) {
+  $.getJSON('business.do?action=getFileName&affix_fileid=' + affix_fileid + '&' + new Date().getTime()).then(function (data) {
     var html = affixTmpl.render({
       files: data
     });
