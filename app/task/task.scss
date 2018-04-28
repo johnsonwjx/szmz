@@ -1,15 +1,15 @@
 @import "../scss/vars";
-
 #tasks {
   height: 30%;
-
   .tab-header {
     .pure-menu-link {
       padding: 5px 50px 3px;
     }
   }
-
   .tab-content {
+    .list-item .time {
+      right: 25px;
+    }
     .content {
       width: 90%;
     }

@@ -26,11 +26,11 @@ function param(key) {
 }
 
 function getJSONFail(response, $content) {
-  if (response.status === 200) {
+  // if (response.status === 200) {
     $content.html('');
-  } else {
-    $content.html(status.error);
-  }
+  // } else {
+    // $content.html(status.error);
+  // }
 }
 
 function getJSON(url, $content) {

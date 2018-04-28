@@ -11,23 +11,19 @@ function getTasks(param, $emenent, templ) {
   }
   var url = Common.rootpath + 'loadMain.do?action=loadTaskByAjax&taskGpType=D&filter=&' + param;
   return Common.getJSON(url, $emenent).then(function (rawData) {
-    var tasks = [];
-    if (rawData.titleinfo.length > 0) {
-      var items = rawData.data[rawData.titleinfo[0][0]];
-      tasks = $.map(items, function (itemArr) {
-        var timeArr = itemArr[3].split(' ');
-        return {
-          id: itemArr[0],
-          title: itemArr[2],
-          date: timeArr[0],
-          time: timeArr[1],
-          person: itemArr[4],
-          status: itemArr[5],
-          fid: itemArr[8],
-          wtype: itemArr[9]
-        };
-      });
-    }
+    var tasks = _.chain(rawData.data).values().flatten().map(function (itemArr) {
+      var timeArr = itemArr[3].split(' ');
+      return {
+        id: itemArr[0],
+        title: itemArr[2],
+        date: timeArr[0],
+        time: timeArr[1],
+        person: itemArr[4],
+        status: itemArr[5],
+        fid: itemArr[8],
+        wtype: itemArr[9]
+      };
+    }).value();
     rawData.tasks = tasks;
     var html = templ.render({
       data: tasks
